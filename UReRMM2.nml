@@ -163,7 +163,10 @@ grf {
 			desc: string(STR_STRING_2, string(STR_PARAM_SPEED_8_DESC), string(STR_STRING_DISABLE_DESC));
 			min_value:  29;
 			max_value: 255;
-			def_value:  60;
+			def_value:  29;
+			names: {
+				29:  string(STR_STRING_DISABLE);
+					};
 				}
 			}
 			param 12 {
@@ -173,7 +176,7 @@ grf {
 			desc: string(STR_STRING_2, string(STR_PARAM_SPEED_9_DESC), string(STR_STRING_DISABLE_DESC));
 			min_value:  29;
 			max_value: 255;
-			def_value: 111;
+			def_value: 29;
 				}
 			}
 			param 13 {
@@ -183,7 +186,7 @@ grf {
 			desc: string(STR_STRING_2, string(STR_PARAM_SPEED_10_DESC), string(STR_STRING_DISABLE_DESC));
 			min_value:  29;
 			max_value: 255;
-			def_value:  91;
+			def_value:  29;
 			names: {
 				29: string(STR_STRING_DISABLE);
 					};
@@ -196,7 +199,7 @@ grf {
 			desc: string(STR_STRING_2, string(STR_PARAM_SPEED_11_DESC), string(STR_STRING_DISABLE_DESC));
 			min_value:  29;
 			max_value: 255;
-			def_value:  60;
+			def_value:  29;
 			names: {
 				29: string(STR_STRING_DISABLE);
 					};
@@ -209,7 +212,7 @@ grf {
 			desc: string(STR_STRING_2, string(STR_PARAM_SPEED_12_DESC), string(STR_STRING_DISABLE_DESC));
 			min_value:  29;
 			max_value: 255;
-			def_value: 121;
+			def_value:	29;
 			names: {
 				29: string(STR_STRING_DISABLE);
 					};
@@ -223,6 +226,9 @@ grf {
 			min_value:  29;
 			max_value: 255;
 			def_value:  60;
+			names: {
+				29:  string(STR_STRING_DISABLE);
+					};
 				}
 			}
 			param 17 {
@@ -233,6 +239,9 @@ grf {
 			min_value: 29;
 			max_value: 255;
 			def_value: 91;
+			names: {
+				29:  string(STR_STRING_DISABLE);
+					};
 				}
 			}
 			param 18 {
@@ -281,7 +290,10 @@ grf {
 			desc: string(STR_STRING_2, string(STR_PARAM_SPEED_18_DESC), string(STR_STRING_DISABLE_DESC));
 			min_value: 29;
 			max_value: 255;
-			def_value: 60;
+			def_value: 29;
+			names: {
+				29:  string(STR_STRING_DISABLE);
+					};
 				}
 			}
 			param 22 {
@@ -291,7 +303,10 @@ grf {
 			desc: string(STR_STRING_2, string(STR_PARAM_SPEED_19_DESC), string(STR_STRING_DISABLE_DESC));
 			min_value: 29;
 			max_value: 255;
-			def_value: 91;
+			def_value: 29;
+			names: {
+				29:  string(STR_STRING_DISABLE);
+					};
 				}
 			}
 	}
