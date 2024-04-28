@@ -5387,62 +5387,62 @@ spriteset(switch_SUAE_wires_standar_rail, "gfx/WIRES/WIRES.png") {
 //============================================================================
 	item(FEAT_RAILTYPES, RAIL, 0) {
 		property {
-			label:							"RAIL";
+			label:						"SAAN";
 			name:                       	string(STR_NAME_SAAN);
 			toolbar_caption:    			string(STR_TOOLBAR_SAAN);
 			menu_text:                  	string(STR_MENU_SAAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_RAIL);
 			new_engine_text:            	string(STR_NEW_ENGINE_RAIL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-			                                	"SABE", "SACE", "SADE", "SAEE",
-												"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["RAIL",
-												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-												"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
-			railtype_flags:					bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
+		//	compatible_railtype_list:   	["RAIL", "ELRL", "SA_N",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//	                                	"SABE", "SACE", "SADE", "SAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["RAIL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
+		//										"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
+			railtype_flags:				bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			construction_cost:          	(param_speed_1)/5+8;
-			maintenance_cost:				(param_speed_1)/5+8;
+			maintenance_cost:			(param_speed_1)/5+8;
 			speed_limit:                	(param_speed_1) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						20;
-			sort_order:						2;
+			map_colour:					20;
+			sort_order:					2;
 				}
 	if (param_3rd == 3) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 2) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 1) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
 			}
 		}
 	if (param_speed_1 == 29 ) {
 		property {
-			railtype_flags:					bitmask(RAILTYPE_FLAG_HIDDEN);
+			railtype_flags:				bitmask(RAILTYPE_FLAG_HIDDEN);
 			introduces_railtype_list:		["SBAN"];
 				}
 			}
@@ -5453,7 +5453,7 @@ spriteset(switch_SUAE_wires_standar_rail, "gfx/WIRES/WIRES.png") {
 		}
 		graphics {
 			track_overlay:   				switch_SAAN_overlay;
-			precombined:					switch_SAAN_precombined;
+			precombined:				switch_SAAN_precombined;
 			underlay:        				switch_SAAN_underlay;
 			bridge_surfaces: 				switch_SAAN_bridge;
 			level_crossings: 				switch_SAAN_level_crossings;
@@ -5461,11 +5461,11 @@ spriteset(switch_SUAE_wires_standar_rail, "gfx/WIRES/WIRES.png") {
 			depots:          				switch_SAAN_depots;
 		  //signals:
 			fences:          				switch_SAAN_fences;
-			gui:							switch_SAAN_gui;
+			gui:						switch_SAAN_gui;
 				}
 	if (param_tunnel == 1) {		
 		graphics {
-			tunnel_overlay:					switch_SAAN_tunnel_overlay;
+			tunnel_overlay:				switch_SAAN_tunnel_overlay;
 				}
 			}
 		}
@@ -5476,59 +5476,59 @@ if (param_speed_2 != 29) {
 if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SBAN, 5) {
 		property {
-			label:							"SBAN";
+			label:						"SBAN";
 			name:                       	string(STR_NAME_SBAN);
 			toolbar_caption:    			string(STR_TOOLBAR_SBAN);
 			menu_text:                  	string(STR_MENU_SBAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_RAIL);
 			new_engine_text:            	string(STR_NEW_ENGINE_RAIL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-			                                	"SABE", "SACE", "SADE", "SAEE",
-												"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["RAIL",
-												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-												"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
-			railtype_flags:					bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//	                                	"SABE", "SACE", "SADE", "SAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["RAIL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
+		//										"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
+			railtype_flags:				bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL"];
 			introduction_date: 				date(1900,01,01);
 			construction_cost:          	(param_speed_2)/5+10;
-			maintenance_cost:				(param_speed_2)/5+10;
+			maintenance_cost:			(param_speed_2)/5+10;
 			speed_limit:                	(param_speed_2) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						21;
-			sort_order:						3;
+			map_colour:					21;
+			sort_order:					3;
 				}
 	if (param_3rd == 3) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 2) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 1) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
 			}
 		}
 		graphics {
@@ -5541,11 +5541,11 @@ if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_SBAN_depots;
 		  //signals:
 			fences:          				switch_SBAN_fences;
-			gui:							switch_SBAN_gui;
+			gui:						switch_SBAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SBAN_tunnel_overlay;
+			tunnel_overlay:				switch_SBAN_tunnel_overlay;
 				}
 			}
 		}
@@ -5556,64 +5556,64 @@ if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 //============================================================================
 	item(FEAT_RAILTYPES, ELRL, 1) {
 		property {
-			label:							"ELRL";
+			label:						"SBAE";
 			name:                       	string(STR_NAME_SBAE);
 			toolbar_caption:    			string(STR_TOOLBAR_SBAE);
 			menu_text:                  	string(STR_MENU_SBAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELRL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:   		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dBAE"];
-			alternative_railtype_list:		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:   		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dBAE"];
+		//	alternative_railtype_list:		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
+		//	                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			construction_cost:          	(param_speed_2)/5+16;
-			maintenance_cost:				(param_speed_2)/5+16;
+			maintenance_cost:			(param_speed_2)/5+16;
 			speed_limit:                	(param_speed_2) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						149;
-			sort_order:						6;
+			map_colour:					149;
+			sort_order:					6;
 				}
 	if (param_speed_2 == 29 ) {
 		property {
-			railtype_flags:					bitmask(RAILTYPE_FLAG_HIDDEN);
+			railtype_flags:				bitmask(RAILTYPE_FLAG_HIDDEN);
 			introduces_railtype_list:		["SCAE"];
 				}
 			}
 	if (param_3rd > 1) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SBAN_overlay;
-			precombined:					switch_SBAN_precombined;
+			precombined:				switch_SBAN_precombined;
 			underlay:        				switch_SBAN_underlay;
 			bridge_surfaces: 				switch_SBAN_bridge;
 			level_crossings: 				switch_SBAN_level_crossings;
@@ -5623,11 +5623,11 @@ if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		//signals:
 			fences:          				switch_SBAN_fences;
-			gui:							switch_SBAE_gui;
+			gui:						switch_SBAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SBAN_tunnel_overlay;
+			tunnel_overlay:				switch_SBAN_tunnel_overlay;
 				}
 			}
 		}
@@ -5637,64 +5637,64 @@ if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("SCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SCAN, 7) {
 		property {
-			label:							"SCAN";
+			label:						"SCAN";
 			name:                       	string(STR_NAME_SCAN);
 			toolbar_caption:    			string(STR_TOOLBAR_SCAN);
 			menu_text:                  	string(STR_MENU_SCAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_RAIL);
 			new_engine_text:            	string(STR_NEW_ENGINE_RAIL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-			                                	"SABE", "SACE", "SADE", "SAEE",
-												"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["RAIL",
-												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-												"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//	                                	"SABE", "SACE", "SADE", "SAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["RAIL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
+		//										"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL"];
 			introduction_date: 				date(1930,01,01);
 			construction_cost:          	(param_speed_3)/5+12;
-			maintenance_cost:				(param_speed_3)/5+12;
+			maintenance_cost:			(param_speed_3)/5+12;
 			speed_limit:                	(param_speed_3) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						22;
-			sort_order:						4;
+			map_colour:					22;
+			sort_order:					4;
 				}
 	if (param_3rd == 3) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 2) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 1) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SCAN_overlay;
-			precombined:					switch_SCAN_precombined;
+			precombined:				switch_SCAN_precombined;
 			underlay:        				switch_SCAN_underlay;
 			bridge_surfaces: 				switch_SCAN_bridge;
 			level_crossings: 				switch_SCAN_level_crossings;
@@ -5702,11 +5702,11 @@ if (railtype_available("SCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_SCAN_depots;
 		  //signals:
 			fences:          				switch_SCAN_fences;
-			gui:							switch_SCAN_gui;
+			gui:						switch_SCAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SCAN_tunnel_overlay;
+			tunnel_overlay:				switch_SCAN_tunnel_overlay;
 				}
 			}
 		}
@@ -5717,60 +5717,60 @@ if (railtype_available("SCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("SCAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SCAE, 8) {
 		property {
-			label:							"SCAE";
+			label:						"SCAE";
 			name:                       	string(STR_NAME_SCAE);
 			toolbar_caption:    			string(STR_TOOLBAR_SCAE);
 			menu_text:                  	string(STR_MENU_SCAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELRL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:   		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dBAE"];
-			alternative_railtype_list:		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:   		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dBAE"];
+		//	alternative_railtype_list:		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
+		//	                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1930,01,01);
 			construction_cost:          	(param_speed_3)/5+18;
-			maintenance_cost:				(param_speed_3)/5+18;
+			maintenance_cost:			(param_speed_3)/5+18;
 			speed_limit:                	(param_speed_3) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						150;
-			sort_order:						7;
+			map_colour:					150;
+			sort_order:					7;
 				}
 	if (param_3rd > 1) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SCAN_overlay;
-			precombined:					switch_SCAN_precombined;
+			precombined:				switch_SCAN_precombined;
 			underlay:        				switch_SCAN_underlay;
 			bridge_surfaces: 				switch_SCAN_bridge;
 			level_crossings: 				switch_SCAN_level_crossings;
@@ -5780,7 +5780,7 @@ if (railtype_available("SCAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		//signals:
 			fences:          				switch_SCAN_fences;
-			gui:							switch_SCAE_gui;
+			gui:						switch_SCAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
@@ -5795,64 +5795,64 @@ if (railtype_available("SCAE") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("SDAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SDAN, 9) {
 		property {
-			label:							"SDAN";
+			label:						"SDAN";
 			name:                       	string(STR_NAME_SDAN);
 			toolbar_caption:    			string(STR_TOOLBAR_SDAN);
 			menu_text:                  	string(STR_MENU_SDAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_RAIL);
 			new_engine_text:            	string(STR_NEW_ENGINE_RAIL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-			                                	"SABE", "SACE", "SADE", "SAEE",
-												"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["RAIL",
-												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-												"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//	                                	"SABE", "SACE", "SADE", "SAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["RAIL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
+		//										"SABN", "SACN", "SADN", "SAEN"];                                            //Axle load class [**X*]
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_4 == 501) ? 80 : (param_speed_4)/5+20;
-			maintenance_cost:				(param_speed_4 == 501) ? 80 : (param_speed_4)/5+20;
+			maintenance_cost:			(param_speed_4 == 501) ? 80 : (param_speed_4)/5+20;
 			speed_limit:                	(param_speed_4 == 501) ?  0 : (param_speed_4) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						23;
-			sort_order:						5;
+			map_colour:					23;
+			sort_order:					5;
 				}
 	if (param_3rd == 3) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 2) {
 			property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 1) {
 		property {
-			powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
+		//	powered_railtype_list:      	["SAA3", "SBA3", "SUA3"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SDAN_overlay;
-			precombined:					switch_SDAN_precombined;
+			precombined:				switch_SDAN_precombined;
 			underlay:        				switch_SDAN_underlay;
 			bridge_surfaces: 				switch_SDAN_bridge;
 			level_crossings: 				switch_SDAN_level_crossings;
@@ -5860,11 +5860,11 @@ if (railtype_available("SDAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_SDAN_depots;
 		//signals:
 			fences:          				switch_SDAN_fences;
-			gui:							switch_SDAN_gui;
+			gui:						switch_SDAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SDAN_tunnel_overlay;
+			tunnel_overlay:				switch_SDAN_tunnel_overlay;
 				}
 			}
 		}
@@ -5875,60 +5875,60 @@ if (railtype_available("SDAN") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("SDAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SDAE, 10) {
 		property {
-			label:							"SDAE";
+			label:						"SDAE";
 			name:                       	string(STR_NAME_SDAE);
 			toolbar_caption:    			string(STR_TOOLBAR_SDAE);
 			menu_text:                  	string(STR_MENU_SDAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELRL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:   		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dBAE"];
-			alternative_railtype_list:		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:   		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dBAE"];
+		//	alternative_railtype_list:		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
+		//	                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
-			maintenance_cost:				(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
+			maintenance_cost:			(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
 			speed_limit:                	(param_speed_4 == 501) ?   0 : (param_speed_4) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						151;
-			sort_order:						8;
+			map_colour:					151;
+			sort_order:					8;
 				}
 	if (param_3rd > 1) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SDAN_overlay;
-			precombined:					switch_SDAN_precombined;
+			precombined:				switch_SDAN_precombined;
 			underlay:        				switch_SDAN_underlay;
 			bridge_surfaces: 				switch_SDAN_bridge;
 			level_crossings: 				switch_SDAN_level_crossings;
@@ -5938,11 +5938,11 @@ if (railtype_available("SDAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		  //signals:
 			fences:          				switch_SDAN_fences;
-			gui:							switch_SDAE_gui;
+			gui:						switch_SDAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SDAN_tunnel_overlay;
+			tunnel_overlay:				switch_SDAN_tunnel_overlay;
 				}
 			}
 		}
@@ -5954,60 +5954,60 @@ if (param_speed_5 != 99) {
 if (railtype_available("SEAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SEAE, 11) {
 		property {
-			label:							"SEAE";
+			label:						"SEAE";
 			name:                       	string(STR_NAME_SEAE);
 			toolbar_caption:    			string(STR_TOOLBAR_SEAE);
 			menu_text:                  	string(STR_MENU_SEAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELRL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:   		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dBAE"];
-			alternative_railtype_list:		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:   		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dBAE"];
+		//	alternative_railtype_list:		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
+		//	                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1990,01,01);
 			construction_cost:          	(param_speed_5 == 501) ? 125 : (param_speed_5)/5+22;
-			maintenance_cost:				(param_speed_5 == 501) ? 125 : (param_speed_5)/5+22;
+			maintenance_cost:			(param_speed_5 == 501) ? 125 : (param_speed_5)/5+22;
 			speed_limit:                	(param_speed_5 == 501) ?   0 : (param_speed_5) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						152;
-			sort_order:						9;
+			map_colour:					152;
+			sort_order:					9;
 				}
 	if (param_3rd > 1) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SEAE_overlay;
-			precombined:					switch_SEAE_precombined;
+			precombined:				switch_SEAE_precombined;
 			underlay:        				switch_SEAE_underlay;
 			bridge_surfaces: 				switch_SEAE_bridge;
 			tunnels:         				switch_SEAE_tunnel;
@@ -6016,11 +6016,11 @@ if (railtype_available("SEAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		  //signals:
 			fences:          				switch_SEAE_fences;
-			gui:							switch_SEAE_gui;
+			gui:						switch_SEAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SEAE_tunnel_overlay;
+			tunnel_overlay:				switch_SEAE_tunnel_overlay;
 				}
 			}
 		}
@@ -6033,60 +6033,60 @@ if (param_speed_6 != 99) {
 if (railtype_available("SFAE") || loading_stage == LOADING_STAGE_RESERVE) {
 		item(FEAT_RAILTYPES, SFAE, 24) {
 		property {
-			label:							"SFAE";
+			label:						"SFAE";
 			name:                       	string(STR_NAME_SFAE);
 			toolbar_caption:    			string(STR_TOOLBAR_SFAE);
 			menu_text:                  	string(STR_MENU_SFAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELRL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:   		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dBAE"];
-			alternative_railtype_list:		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:   		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dBAE"];
+		//	alternative_railtype_list:		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
+		//	                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(2010,01,01);
 			construction_cost:          	(param_speed_6 == 501) ? 150 : (param_speed_6)/5+24;
-			maintenance_cost:				(param_speed_6 == 501) ? 150 : (param_speed_6)/5+24;
+			maintenance_cost:			(param_speed_6 == 501) ? 150 : (param_speed_6)/5+24;
 			speed_limit:                	(param_speed_6 == 501) ?   0 : (param_speed_6) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						153;
-			sort_order:						10;
+			map_colour:					153;
+			sort_order:					10;
 				}
 	if (param_3rd > 1) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SFAE_overlay;
-			precombined:					switch_SFAE_precombined;
+			precombined:				switch_SFAE_precombined;
 			underlay:        				switch_SFAE_underlay;
 			bridge_surfaces: 				switch_SFAE_bridge;
 			tunnels:         				switch_SFAE_tunnel;
@@ -6095,11 +6095,11 @@ if (railtype_available("SFAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_SUAE_wires_standar_rail;
 		//signals:
 			fences:          				switch_SFAE_fences;
-			gui:							switch_SFAE_gui;
+			gui:						switch_SFAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SFAE_tunnel_overlay;
+			tunnel_overlay:				switch_SFAE_tunnel_overlay;
 				}
 			}
 		}
@@ -6112,62 +6112,62 @@ if (param_speed_7 != 29) {
 if (railtype_available("SUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SUAE, 12) {
 		property {
-			label:							"SUAE";
+			label:						"SUAE";
 			name:                       	string(STR_NAME_SUAE);
 			toolbar_caption:    			string(STR_TOOLBAR_SUAE);
 			menu_text:                  	string(STR_MENU_SUAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELRL);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-												"SABN", "SACN", "SADN", "SAEN",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:   		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-                                                "SAAE", "SABE", "SACE", "SADE", "SAEE",
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa",
-												"dBAE"];
-			alternative_railtype_list:		["ELRL",
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-                                                "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-                                                "SAAd", "SABd", "SACd", "SADd", "SAEd",
-                                                "SAAA", "SABA", "SACA", "SADA", "SAEA",
-                                                "SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//										"SABN", "SACN", "SADN", "SAEN",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:   		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+        //				                        "SAAE", "SABE", "SACE", "SADE", "SAEE",
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa",
+		//										"dBAE"];
+		//	alternative_railtype_list:		["ELRL",
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
+		//	                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+        //				                        "SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
+        //				                        "SAAd", "SABd", "SACd", "SADd", "SAEd",
+        //				                        "SAAA", "SABA", "SACA", "SADA", "SAEA",
+        //				                        "SAAa", "SABa", "SACa", "SADa", "SAEa"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_7)/5+26;
-			maintenance_cost:				(param_speed_7)/5+26;
+			maintenance_cost:			(param_speed_7)/5+26;
 			speed_limit:                	(param_speed_7) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						66;
-			sort_order:						11;
+			map_colour:					66;
+			sort_order:					11;
 				}
 	if (param_3rd > 1) {
 		property {
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
 			track_overlay:   				switch_SUAE_overlay;
-			precombined:					switch_SUAE_precombined;
+			precombined:				switch_SUAE_precombined;
 			underlay:        				switch_SUAE_underlay;
-			level_crossings:				switch_SUAE_level_crossings;
+			level_crossings:			switch_SUAE_level_crossings;
 			bridge_surfaces: 				switch_SUAE_bridge;
 			tunnels:         				switch_SUAE_tunnel;
 			depots:          				switch_SUAE_depots;
@@ -6175,11 +6175,11 @@ if (railtype_available("SUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_SUAE_wires_standar_rail;
 		  //signals:
 			fences:          				switch_SUAE_fences;
-			gui:							switch_SUAE_gui;
+			gui:						switch_SUAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SUAE_tunnel_overlay;
+			tunnel_overlay:				switch_SUAE_tunnel_overlay;
 				}
 			}
 		}
@@ -6191,38 +6191,38 @@ if (railtype_available("SUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("SAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SAA3, 13) {
 		property {
-			label:							"SAA3";
+			label:						"SAA3";
 			name:                       	string(STR_NAME_SAA3);
 			toolbar_caption:    			string(STR_TOOLBAR_SAA3);
 			menu_text:                  	string(STR_MENU_SAA3);
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:           	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:            	string(STR_NEW_ENGINE_3RDR);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["3RDR", "MTRO", 
-												"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-												"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-			alternative_railtype_list:		["3RDR", "MTRO", 
-												"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-												"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["3RDR", "MTRO", 
+		//										"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
+		//										"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	alternative_railtype_list:		["3RDR", "MTRO", 
+		//										"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
+		//										"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			construction_cost:          	(param_speed_8)/5+8;
-			maintenance_cost:				(param_speed_8)/5+8;
+			maintenance_cost:			(param_speed_8)/5+8;
 			speed_limit:                	(param_speed_8) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						93;
-			sort_order:						12;
+			map_colour:					93;
+			sort_order:					12;
 				}
 		graphics {
 			track_overlay:   				switch_SAA3_overlay;
-			precombined:					switch_SAA3_precombined;
+			precombined:				switch_SAA3_precombined;
 			underlay:        				switch_SAA3_underlay;
 			bridge_surfaces: 				switch_SAA3_bridge;
 			level_crossings: 				switch_SAA3_level_crossings;
@@ -6230,11 +6230,11 @@ if (railtype_available("SAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_SAA3_depots;
 		  //signals:
 			fences:          				switch_SAA3_fences;
-			gui:							switch_SAA3_gui;
+			gui:						switch_SAA3_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SAA3_tunnel_overlay;
+			tunnel_overlay:				switch_SAA3_tunnel_overlay;
 				}
 			}
 		}
@@ -6245,40 +6245,40 @@ if (railtype_available("SAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("SBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SBA3, 21) {
 		property {
-			label:							"SBA3";
+			label:						"SBA3";
 			name:                       	string(STR_NAME_SBA3);
 			toolbar_caption:    			string(STR_TOOLBAR_SBA3);
 			menu_text:                  	string(STR_MENU_SBA3);
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:           	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:            	string(STR_NEW_ENGINE_3RDR);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["3RDR", "MTRO", 
-												"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-												"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-			alternative_railtype_list:		["3RDR", "MTRO", 
-												"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-												"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["3RDR", "MTRO", 
+		//										"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
+		//										"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	alternative_railtype_list:		["3RDR", "MTRO", 
+		//										"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
+		//										"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_9)/5+10;
-			maintenance_cost:				(param_speed_9)/5+10;
+			maintenance_cost:			(param_speed_9)/5+10;
 			speed_limit:                	(param_speed_9) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						94;
-			sort_order:						13;
+			map_colour:					94;
+			sort_order:					13;
 				}
 		graphics {
 			track_overlay:   				switch_SBA3_overlay;
-			precombined:					switch_SBA3_precombined;
+			precombined:				switch_SBA3_precombined;
 			underlay:        				switch_SBA3_underlay;
 			bridge_surfaces: 				switch_SBA3_bridge;
 			level_crossings: 				switch_SBA3_level_crossings;
@@ -6286,11 +6286,11 @@ if (railtype_available("SBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_SBA3_depots;
 		  //signals:
 			fences:          				switch_SBA3_fences;
-			gui:							switch_SBA3_gui;
+			gui:						switch_SBA3_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SBA3_tunnel_overlay;
+			tunnel_overlay:				switch_SBA3_tunnel_overlay;
 				}
 			}
 		}
@@ -6302,40 +6302,40 @@ if (param_speed_10 != 29) {
 if (railtype_available("SUA3") || loading_stage == LOADING_STAGE_RESERVE) {
 		item(FEAT_RAILTYPES, SUA3, 14) {
 			property {
-			label:							"SUA3";
+			label:						"SUA3";
 			name:                       	string(STR_NAME_SUA3);
 			toolbar_caption:    			string(STR_TOOLBAR_SUA3);
 			menu_text:                  	string(STR_MENU_SUA3);
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:           	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:            	string(STR_NEW_ENGINE_3RDR);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["3RDR", "MTRO", 
-												"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-												"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-			alternative_railtype_list:		["3RDR", "MTRO", 
-												"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-												"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["3RDR", "MTRO", 
+		//										"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
+		//										"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	alternative_railtype_list:		["3RDR", "MTRO", 
+		//										"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
+		//										"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_10)/5+12;
-			maintenance_cost:				(param_speed_10)/5+12;
+			maintenance_cost:			(param_speed_10)/5+12;
 			speed_limit:                	(param_speed_10) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						95;
-			sort_order:						14;
+			map_colour:					95;
+			sort_order:					14;
 				}
 		graphics {
 			track_overlay:   				switch_SUA3_overlay;
-			precombined:					switch_SUA3_precombined;
+			precombined:				switch_SUA3_precombined;
 			underlay:        				switch_SUA3_underlay;
 			bridge_surfaces: 				switch_SUA3_bridge;
 			level_crossings: 				switch_SUA3_level_crossings;
@@ -6343,11 +6343,11 @@ if (railtype_available("SUA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_SUA3_depots;
 		  //signals:
 			fences:          				switch_SUA3_fences;
-			gui:							switch_SUA3_gui;
+			gui:						switch_SUA3_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SUA3_tunnel_overlay;
+			tunnel_overlay:				switch_SUA3_tunnel_overlay;
 				}
 			}
 		}
@@ -6360,36 +6360,36 @@ if (param_3rd > 1) {
 if (railtype_available("SAAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 		item(FEAT_RAILTYPES, SAAZ, 28) {
 			property {
-			label:							"SAAZ";
+			label:						"SAAZ";
 			name:                       	string(STR_NAME_SAAZ);
 			toolbar_caption:    			string(STR_TOOLBAR_SAAZ);
 			menu_text:                  	string(STR_MENU_SAAZ);
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:           	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:            	string(STR_NEW_ENGINE_3RDR);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-			alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3", "ELRL"];
 			introduction_date: 				date(0000,01,01);
 			construction_cost:          	(param_speed_8)/5+16;
-			maintenance_cost:				(param_speed_8)/5+16;
+			maintenance_cost:			(param_speed_8)/5+16;
 			speed_limit:                	(param_speed_8) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						47;
-			sort_order:						15;
+			map_colour:					47;
+			sort_order:					15;
 				}
 		graphics {
 			track_overlay:   				switch_SAA3_overlay;
-			precombined:					switch_SAA3_precombined;
+			precombined:				switch_SAA3_precombined;
 			underlay:        				switch_SAA3_underlay;
 			bridge_surfaces: 				switch_SAA3_bridge;
 			level_crossings: 				switch_SAA3_level_crossings;
@@ -6399,11 +6399,11 @@ if (railtype_available("SAAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		//signals:
 			fences:          				switch_SAA3_fences;
-			gui:							switch_SAAZ_gui;
+			gui:						switch_SAAZ_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SAA3_tunnel_overlay;
+			tunnel_overlay:				switch_SAA3_tunnel_overlay;
 				}
 			}
 		}
@@ -6416,36 +6416,36 @@ if (param_3rd > 1) {
 if (railtype_available("SBAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SBAZ, 29) {
 		property {
-			label:							"SBAZ";
+			label:						"SBAZ";
 			name:                       	string(STR_NAME_SBAZ);
 			toolbar_caption:    			string(STR_TOOLBAR_SBAZ);
 			menu_text:                  	string(STR_MENU_SBAZ);
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:           	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:            	string(STR_NEW_ENGINE_3RDR);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-			alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3", "ELRL"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_9)/5+18;
-			maintenance_cost:				(param_speed_9)/5+18;
+			maintenance_cost:			(param_speed_9)/5+18;
 			speed_limit:                	(param_speed_9) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						48;
-			sort_order:						16;
+			map_colour:					48;
+			sort_order:					16;
 				}
 		graphics {
 			track_overlay:   				switch_SBA3_overlay;
-			precombined:					switch_SBA3_precombined;
+			precombined:				switch_SBA3_precombined;
 			underlay:        				switch_SBA3_underlay;
 			bridge_surfaces: 				switch_SBA3_bridge;
 			level_crossings: 				switch_SBA3_level_crossings;
@@ -6455,11 +6455,11 @@ if (railtype_available("SBAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		  //signals:
 			fences:          				switch_SBA3_fences;
-			gui:							switch_SBAZ_gui;
+			gui:						switch_SBAZ_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SBA3_tunnel_overlay;
+			tunnel_overlay:				switch_SBA3_tunnel_overlay;
 				}
 			}
 		}
@@ -6472,36 +6472,36 @@ if ((param_3rd > 1) && (param_speed_10 != 29)) {
 if (railtype_available("SUAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SUAZ, 30) {
 		property {
-			label:							"SUAZ";
+			label:						"SUAZ";
 			name:                       	string(STR_NAME_SUAZ);
 			toolbar_caption:    			string(STR_TOOLBAR_SUAZ);
 			menu_text:                  	string(STR_MENU_SUAZ);
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:           	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:            	string(STR_NEW_ENGINE_3RDR);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:      	["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-			alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ"];
+		//	powered_railtype_list:      	["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3", "ELRL"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_10)/5+20;
-			maintenance_cost:				(param_speed_10)/5+20;
+			maintenance_cost:			(param_speed_10)/5+20;
 			speed_limit:                	(param_speed_10) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						49;
-			sort_order:						17;
+			map_colour:					49;
+			sort_order:					17;
 				}
 		graphics {
 			track_overlay:   				switch_SUA3_overlay;
-			precombined:					switch_SUA3_precombined;
+			precombined:				switch_SUA3_precombined;
 			underlay:        				switch_SUA3_underlay;
 			bridge_surfaces: 				switch_SUA3_bridge;
 			level_crossings: 				switch_SUA3_level_crossings;
@@ -6511,11 +6511,11 @@ if (railtype_available("SUAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_SUAE_wires_standar_rail;
 		//signals:		
 			fences:          				switch_SUA3_fences;
-			gui:							switch_SUAZ_gui;
+			gui:						switch_SUAZ_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_SUA3_tunnel_overlay;
+			tunnel_overlay:				switch_SUA3_tunnel_overlay;
 				}
 			}
 		}
@@ -6528,38 +6528,38 @@ if (param_speed_11 != 29) {
 if (railtype_available("dAAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, dAAN, 25) {
 		property {
-			label:							"dAAN";
+			label:						"dAAN";
 			name:                       	string(STR_NAME_dAAN);
 			toolbar_caption:    			string(STR_TOOLBAR_dAAN);
 			menu_text:                  	string(STR_MENU_dAAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_dAAN);
 			autoreplace_text:          	 	string(STR_AUTOREPLACE_dAAN);
 			new_engine_text:            	string(STR_NEW_ENGINE_dAAN);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ",
-												"nAAN", "NAAN", "NBAN", "NCAN", 
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
-			powered_railtype_list:      	["dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ",
+		//										"nAAN", "NAAN", "NBAN", "NCAN", 
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
+		//	powered_railtype_list:      	["dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL", "NAAN"];
 			introduction_date: 				date(0000,01,01);
 			construction_cost:          	(param_speed_11)/5+10;
-			maintenance_cost:				(param_speed_11)/5+10;
+			maintenance_cost:			(param_speed_11)/5+10;
 			speed_limit:                	(param_speed_11) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						57;
-			sort_order:						18;
+			map_colour:					57;
+			sort_order:					18;
 				}
 		graphics {
 			track_overlay:   				switch_dAAN_overlay;
-			precombined:					switch_dAAN_precombined;
+			precombined:				switch_dAAN_precombined;
 			underlay:        				switch_dAAN_underlay;
 			bridge_surfaces: 				switch_dAAN_bridge;
 			level_crossings: 				switch_dAAN_level_crossings;
@@ -6567,11 +6567,11 @@ if (railtype_available("dAAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_dAAN_depots;
 		  //signals:		
 			fences:          				switch_dAAN_fences;
-			gui:							switch_dAAN_gui;
+			gui:						switch_dAAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_dAAN_tunnel_overlay;
+			tunnel_overlay:				switch_dAAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6584,38 +6584,38 @@ if (param_speed_12 != 29) {
 if (railtype_available("dBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, dBAN, 31) {
 	property {
-			label:							"dBAN";
+			label:						"dBAN";
 			name:                       	string(STR_NAME_dBAN);
 			toolbar_caption:    			string(STR_TOOLBAR_dBAN);
 			menu_text:                  	string(STR_MENU_dBAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_dAAN);
 			autoreplace_text:           	string(STR_AUTOREPLACE_dAAN);
 			new_engine_text:            	string(STR_NEW_ENGINE_dAAN);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ",
-												"nAAN", "NAAN", "NBAN", "NCAN", 
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
-			powered_railtype_list:      	["dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ",
+		//										"nAAN", "NAAN", "NBAN", "NCAN", 
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
+		//	powered_railtype_list:      	["dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL", "NAAN"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_12)/5+15;
-			maintenance_cost:				(param_speed_12)/5+15;
+			maintenance_cost:			(param_speed_12)/5+15;
 			speed_limit:                	(param_speed_12) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						58;
-			sort_order:						19;
+			map_colour:					58;
+			sort_order:					19;
 				}
 		graphics {
 			track_overlay:   				switch_dBAN_overlay;
-			precombined:					switch_dBAN_precombined;
+			precombined:				switch_dBAN_precombined;
 			underlay:        				switch_dBAN_underlay;
 			bridge_surfaces: 				switch_dBAN_bridge;
 			level_crossings: 				switch_dBAN_level_crossings;
@@ -6623,11 +6623,11 @@ if (railtype_available("dBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_dBAN_depots;
 		  //signals:
 			fences:          				switch_dBAN_fences;
-			gui:							switch_dBAN_gui;
+			gui:						switch_dBAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_dBAN_tunnel_overlay;
+			tunnel_overlay:				switch_dBAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6640,38 +6640,38 @@ if (param_speed_12 != 29) {
 if (railtype_available("dBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, dBAE, 32) {
 		property {
-			label:							"dBAE";
+			label:						"dBAE";
 			name:                       	string(STR_NAME_dBAE);
 			toolbar_caption:    			string(STR_TOOLBAR_dBAE);
 			menu_text:                  	string(STR_MENU_dBAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_dAAN);
 			autoreplace_text:           	string(STR_AUTOREPLACE_dAAN);
 			new_engine_text:            	string(STR_NEW_ENGINE_dAAN);
-			compatible_railtype_list:   	["RAIL", "ELRL",
-												"SAAN", "SBAN", "SCAN", "SDAN",	
-						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-												"dAAN", "dBAN", "dBAE",
-												"SAA3", "SBA3", "SUA3",
-												"SAAZ", "SBAZ", "SUAZ",
-												"nAAN", "NAAN", "NBAN", "NCAN", 
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
-			powered_railtype_list:      	["dBAE"];
-			alternative_railtype_list:		["dBAE"];
+		//	compatible_railtype_list:   	["RAIL", "ELRL",
+		//										"SAAN", "SBAN", "SCAN", "SDAN",	
+		//				                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
+		//										"dAAN", "dBAN", "dBAE",
+		//										"SAA3", "SBA3", "SUA3",
+		//										"SAAZ", "SBAZ", "SUAZ",
+		//										"nAAN", "NAAN", "NBAN", "NCAN", 
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
+		//	powered_railtype_list:      	["dBAE"];
+		//	alternative_railtype_list:		["dBAE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL", "NAAE"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_12)/5+20;
-			maintenance_cost:				(param_speed_12)/5+20;
+			maintenance_cost:			(param_speed_12)/5+20;
 			speed_limit:                	(param_speed_12) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						59;
-			sort_order:						20;
+			map_colour:					59;
+			sort_order:					20;
 				}
 		graphics {
 			track_overlay:   				switch_dBAN_overlay;
-			precombined:					switch_dBAN_precombined;
+			precombined:				switch_dBAN_precombined;
 			underlay:        				switch_dBAN_underlay;
 			bridge_surfaces: 				switch_dBAN_bridge;
 			level_crossings: 				switch_dBAN_level_crossings;
@@ -6681,11 +6681,11 @@ if (railtype_available("dBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		//signals:
 			fences:          				switch_dBAN_fences;
-			gui:							switch_dBAE_gui;
+			gui:						switch_dBAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_dBAN_tunnel_overlay;
+			tunnel_overlay:				switch_dBAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6697,36 +6697,36 @@ if (railtype_available("dBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("NAAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NAAN, 15) {
 		property {
-			label:							"NAAN";
+			label:						"NAAN";
 			name:                       	string(STR_NAME_NAAN);
 			toolbar_caption:    			string(STR_TOOLBAR_NAAN);
 			menu_text:                  	string(STR_MENU_NAAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_NGRL);
 			autoreplace_text:          	 	string(STR_AUTOREPLACE_NGRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_NGRL);
-			compatible_railtype_list:   	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", 
-                                                "NACN", "NADN", "NAEN",
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
-                                                "NABN", "NACN", "NAEN",
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-												"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
-												"NABN", "NACN", "NADN", "NAEN"];
+		//	compatible_railtype_list:   	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", 
+        //				                        "NACN", "NADN", "NAEN",
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
+        //				                        "NABN", "NACN", "NAEN",
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
+		//										"NABN", "NACN", "NADN", "NAEN"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			construction_cost:          	(param_speed_13)/5;
-			maintenance_cost:				(param_speed_13)/5;
+			maintenance_cost:			(param_speed_13)/5;
 			speed_limit:                	(param_speed_13) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						173;
-			sort_order:						21;
+			map_colour:					173;
+			sort_order:					21;
 				}
 		graphics {
 			track_overlay:   				switch_NAAN_overlay;
-			precombined:					switch_NAAN_precombined;
+			precombined:				switch_NAAN_precombined;
 			underlay:        				switch_NAAN_underlay;
 			bridge_surfaces: 				switch_NAAN_bridge;
 			level_crossings: 				switch_NAAN_level_crossings;
@@ -6734,11 +6734,11 @@ if (railtype_available("NAAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_NAAN_depots;
 		  //signals:
 			fences:          				switch_NAAN_fences;
-			gui:							switch_NAAN_gui;
+			gui:						switch_NAAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NAAN_tunnel_overlay;
+			tunnel_overlay:				switch_NAAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6749,35 +6749,35 @@ if (railtype_available("NAAN") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("NAAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NAAE, 16) {
 		property {
-			label:							"NAAE";
+			label:						"NAAE";
 			name:                       	string(STR_NAME_NAAE);
 			toolbar_caption:    			string(STR_TOOLBAR_NAAE);
 			menu_text:                  	string(STR_MENU_NAAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELNG);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELNG);
-			compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
-												"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE", 
-												"dBAE"];
-			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE"];
+		//	compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
+		//										"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE", 
+		//										"dBAE"];
+		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			construction_cost:          	(param_speed_13)/5+8;
-			maintenance_cost:				(param_speed_13)/5+8;
+			maintenance_cost:			(param_speed_13)/5+8;
 			speed_limit:                	(param_speed_13) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						117;
-			sort_order:						24;
+			map_colour:					117;
+			sort_order:					24;
 				}
 		graphics {
 			track_overlay:   				switch_NAAN_overlay;
-			precombined:					switch_NAAN_precombined;
+			precombined:				switch_NAAN_precombined;
 			underlay:        				switch_NAAN_underlay;
 			bridge_surfaces: 				switch_NAAN_bridge;
 			level_crossings: 				switch_NAAN_level_crossings;
@@ -6787,11 +6787,11 @@ if (railtype_available("NAAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_narrow_rail;
 		  //signals:
 			fences:          				switch_NAAN_fences;
-			gui:							switch_NAAE_gui;
+			gui:						switch_NAAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NAAN_tunnel_overlay;
+			tunnel_overlay:				switch_NAAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6802,37 +6802,37 @@ if (railtype_available("NAAE") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("NBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NBAN, 17) {
 		property {
-			label:							"NBAN";
+			label:						"NBAN";
 			name:                       	string(STR_NAME_NBAN);
 			toolbar_caption:    			string(STR_TOOLBAR_NBAN);
 			menu_text:                  	string(STR_MENU_NBAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_NGRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_NGRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_NGRL);
-			compatible_railtype_list:   	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
+		//	compatible_railtype_list:   	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
 			                                    "NABN", "NACN", "NADN", "NAEN",
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-												"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
-												"NABN", "NACN", "NADN", "NAEN"];
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
+		//										"NABN", "NACN", "NADN", "NAEN"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1930,01,01);
 			requires_railtype_list:			["NAAN"];
 			construction_cost:          	(param_speed_14)/5+2;
-			maintenance_cost:				(param_speed_14)/5+2;
+			maintenance_cost:			(param_speed_14)/5+2;
 			speed_limit:                	(param_speed_14) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						174;
-			sort_order:						22;
+			map_colour:					174;
+			sort_order:					22;
 				}
 		graphics {
 			track_overlay:   				switch_NBAN_overlay;
-			precombined:					switch_NBAN_precombined;
+			precombined:				switch_NBAN_precombined;
 			underlay:        				switch_NBAN_underlay;
 			bridge_surfaces: 				switch_NBAN_bridge;
 			level_crossings: 				switch_NBAN_level_crossings;
@@ -6840,11 +6840,11 @@ if (railtype_available("NBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_NBAN_depots;
 		  //signals:
 			fences:          				switch_NBAN_fences;
-			gui:							switch_NBAN_gui;
+			gui:						switch_NBAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NBAN_tunnel_overlay;
+			tunnel_overlay:				switch_NBAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6855,37 +6855,37 @@ if (railtype_available("NBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("NBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NBAE, 18) {
 		property {
-			label:							"NBAE";
+			label:						"NBAE";
 			name:                       	string(STR_NAME_NBAE);
 			toolbar_caption:    			string(STR_TOOLBAR_NBAE);
 			menu_text:                  	string(STR_MENU_NBAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELNG);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELNG);
-			compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
-												"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE", 
-												"dBAE"];
-			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE"];
+		//	compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
+		//										"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE", 
+		//										"dBAE"];
+		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1930,01,01);
 			requires_railtype_list:			["NAAE"];
 			construction_cost:          	(param_speed_14)/5+10;
-			maintenance_cost:				(param_speed_14)/5+10;
+			maintenance_cost:			(param_speed_14)/5+10;
 			speed_limit:                	(param_speed_14) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						118;
-			sort_order:						25;
+			map_colour:					118;
+			sort_order:					25;
 				}
 		graphics {
 			track_overlay:   				switch_NBAN_overlay;
-			precombined:					switch_NBAN_precombined;
+			precombined:				switch_NBAN_precombined;
 			underlay:        				switch_NBAN_underlay;
 			bridge_surfaces: 				switch_NBAN_bridge;
 			level_crossings: 				switch_NBAN_level_crossings;
@@ -6895,11 +6895,11 @@ if (railtype_available("NBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_narrow_rail;
 		  //signals:
 			fences:          				switch_NBAN_fences;
-			gui:							switch_NBAE_gui;
+			gui:						switch_NBAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NBAN_tunnel_overlay;
+			tunnel_overlay:				switch_NBAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6911,37 +6911,37 @@ if (param_speed_15 != 29 ) {
 if (railtype_available("NCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NCAN, 19) {
 		property {
-			label:							"NCAN";
+			label:						"NCAN";
 			name:                       	string(STR_NAME_NCAN);
 			toolbar_caption:    			string(STR_TOOLBAR_NCAN);
 			menu_text:                  	string(STR_MENU_NCAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_NGRL);
 			autoreplace_text:         	 	string(STR_AUTOREPLACE_NGRL);
 			new_engine_text:           		string(STR_NEW_ENGINE_NGRL);
-			compatible_railtype_list:   	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
+		//	compatible_railtype_list:   	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
 			                                    "NABN", "NACN", "NADN", "NAEN",
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
-												"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-												"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
-												"NABN", "NACN", "NADN", "NAEN"];
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
+		//										"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
+		//										"NABN", "NACN", "NADN", "NAEN"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1960,01,01);
 			requires_railtype_list:			["NAAN"];
 			construction_cost:          	(param_speed_15)/5+4;
-			maintenance_cost:				(param_speed_15)/5+4;
+			maintenance_cost:			(param_speed_15)/5+4;
 			speed_limit:                	(param_speed_15) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						175;
-			sort_order:						23;
+			map_colour:					175;
+			sort_order:					23;
 				}
 		graphics {
 			track_overlay:   				switch_NCAN_overlay;
-			precombined:					switch_NCAN_precombined;
+			precombined:				switch_NCAN_precombined;
 			underlay:        				switch_NCAN_underlay;
 			bridge_surfaces: 				switch_NCAN_bridge;
 			level_crossings: 				switch_NCAN_level_crossings;
@@ -6949,11 +6949,11 @@ if (railtype_available("NCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_NCAN_depots;
 		  //signals:
 			fences:          				switch_NCAN_fences;
-			gui:							switch_NCAN_gui;
+			gui:						switch_NCAN_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NCAN_tunnel_overlay;
+			tunnel_overlay:				switch_NCAN_tunnel_overlay;
 				}
 			}
 		}
@@ -6966,37 +6966,37 @@ if (param_speed_15 != 29 ) {
 if (railtype_available("NCAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NCAE, 20) {
 		property {
-			label:							"NCAE";
+			label:						"NCAE";
 			name:                       	string(STR_NAME_NCAE);
 			toolbar_caption:    			string(STR_TOOLBAR_NCAE);
 			menu_text:                  	string(STR_MENU_NCAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELNG);
 			autoreplace_text:          	 	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELNG);
-			compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
-												"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE", 
-												"dBAE"];
-			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE"];
+		//	compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
+		//										"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE", 
+		//										"dBAE"];
+		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1960,01,01);
 			requires_railtype_list:			["NAAE"];
 			construction_cost:          	(param_speed_15)/5+12;
-			maintenance_cost:				(param_speed_15)/5+12;
+			maintenance_cost:			(param_speed_15)/5+12;
 			speed_limit:                	(param_speed_15) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						119;
-			sort_order:						26;
+			map_colour:					119;
+			sort_order:					26;
 				}
 		graphics {
 			track_overlay:   				switch_NCAN_overlay;
-			precombined:					switch_NCAN_precombined;
+			precombined:				switch_NCAN_precombined;
 			underlay:        				switch_NCAN_underlay;
 			bridge_surfaces: 				switch_NCAN_bridge;
 			level_crossings: 				switch_NCAN_level_crossings;
@@ -7006,11 +7006,11 @@ if (railtype_available("NCAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_narrow_rail;
 		  //signals:
 			fences:          				switch_NCAN_fences;
-			gui:							switch_NCAE_gui;
+			gui:						switch_NCAE_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NCAN_tunnel_overlay;
+			tunnel_overlay:				switch_NCAN_tunnel_overlay;
 				}
 			}
 		}
@@ -7023,39 +7023,39 @@ if (param_speed_16 != 29 ) {
 if (railtype_available("NDAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NDAE, 23) {
 		property {
-			label:							"NDAE";
+			label:						"NDAE";
 			name:                       	string(STR_NAME_NDAE);
 			toolbar_caption:    			string(STR_TOOLBAR_NDAE);
 			menu_text:                  	string(STR_MENU_NDAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELNG);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELNG);
-			compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
-												"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE", 
-												"dBAE"];
-			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE"];
+		//	compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
+		//										"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE", 
+		//										"dBAE"];
+		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["NAAE"];
 			introduction_date: 				date(1990,01,01);
 			construction_cost:          	(param_speed_16)/5+14;
-			maintenance_cost:				(param_speed_16)/5+14;
+			maintenance_cost:			(param_speed_16)/5+14;
 			speed_limit:                	(param_speed_16) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						120;
-			sort_order:						27;
+			map_colour:					120;
+			sort_order:					27;
 				}
 		graphics {
 			track_overlay:   				switch_NDAE_overlay;
-			precombined:					switch_NDAE_precombined;
+			precombined:				switch_NDAE_precombined;
 			underlay:        				switch_NDAE_underlay;
-			level_crossings:				switch_NDAE_level_crossings;
+			level_crossings:			switch_NDAE_level_crossings;
 			bridge_surfaces: 				switch_NDAE_bridge;
 			tunnels:         				switch_NDAE_tunnel;
 			depots:          				switch_NDAE_depots;
@@ -7063,11 +7063,11 @@ if (railtype_available("NDAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_narrow_rail;
 		//signals:
 			fences:          				switch_NDAE_fences;
-			gui:							switch_NDAE_gui;
+			gui:						switch_NDAE_gui;
 				}
 	if (param_tunnel == 1) {
 			graphics {
-			tunnel_overlay:					switch_NDAE_tunnel_overlay;
+			tunnel_overlay:				switch_NDAE_tunnel_overlay;
 				}
 			}
 		}
@@ -7080,37 +7080,37 @@ if (param_speed_17 != 29) {
 if (railtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NUAE, 22) {
 		property {
-			label:							"NUAE";
+			label:						"NUAE";
 			name:                       	string(STR_NAME_NUAE);
 			toolbar_caption:    			string(STR_TOOLBAR_NUAE);
 			menu_text:                  	string(STR_MENU_NUAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELNG);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELNG);
-			compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
-												"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE",
-												"dAAN", "dBAN", "dBAE"];
-			powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE", 
-												"dBAE"];
-			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-												"NABE", "NACE", "NADE", "NAEE"];
+		//	compatible_railtype_list:   	["nAAE", "NAAN", "NBAN", "NCAN", 
+		//										"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE",
+		//										"dAAN", "dBAN", "dBAE"];
+		//	powered_railtype_list:      	["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE", 
+		//										"dBAE"];
+		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+		//										"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1960,01,01);
 			requires_railtype_list:			["NAAE"];
 			construction_cost:          	(param_speed_17)/5+16;
-			maintenance_cost:				(param_speed_17)/5+16;
+			maintenance_cost:			(param_speed_17)/5+16;
 			speed_limit:                	(param_speed_17) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						121;
-			sort_order:						28;
+			map_colour:					121;
+			sort_order:					28;
 				}
 		graphics {
 			track_overlay:   				switch_NUAE_overlay;
-			precombined:					switch_NUAE_precombined;
+			precombined:				switch_NUAE_precombined;
 			underlay:        				switch_NUAE_underlay;
 			bridge_surfaces: 				switch_NUAE_bridge;
 			level_crossings: 				switch_NUAE_level_crossings;
@@ -7120,7 +7120,7 @@ if (railtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_narrow_rail;
 		  //signals:
 			fences:          				switch_NUAE_fences;
-			gui:							switch_NUAE_gui;
+			gui:						switch_NUAE_gui;
 				}
 	if (param_tunnel ==1) {
 		graphics {
@@ -7133,32 +7133,32 @@ if (railtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 //============================================================================
 //					NARROW-GAUGE RAILWAY (3RD POWERED) (NAA3)
 //============================================================================
-if (railtype_available("NAA3") || loading_stage == LOADING_STAGE_RESERVE) {
+//if (railtype_available("NAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NAA3, 26) {
 		property {
-			label:							"NAA3";
+			label:						"NAA3";
 			name:                       	string(STR_NAME_NAA3);
 			toolbar_caption:    			string(STR_TOOLBAR_NAA3);
 			menu_text:                  	string(STR_MENU_NAA3);
 			build_window_caption:			string(STR_BUILD_CAPTION_NAA3);
 			autoreplace_text:           	string(STR_AUTOREPLACE_NAA3);
 			new_engine_text:            	string(STR_NEW_ENGINE_NAA3);
-			compatible_railtype_list:   	["NAA3", "NBA3", "NAB3"];
-			powered_railtype_list:      	["NAA3", "NBA3", "NAB3"];
-			alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
+		//	compatible_railtype_list:   	["NAA3", "NBA3", "NAB3"];
+		//	powered_railtype_list:      	["NAA3", "NBA3", "NAB3"];
+		//	alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			construction_cost:          	(param_speed_18)/5+8;
-			maintenance_cost:				(param_speed_18)/5+8;
+			maintenance_cost:			(param_speed_18)/5+8;
 			speed_limit:                	(param_speed_18) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						101;
-			sort_order:						29;
+			map_colour:					101;
+			sort_order:					29;
 				}
 		graphics {
 			track_overlay:   				switch_NAA3_overlay;
-			precombined:					switch_NAA3_precombined;
+			precombined:				switch_NAA3_precombined;
 			underlay:        				switch_NAA3_underlay;
 			bridge_surfaces: 				switch_NAA3_bridge;
 			level_crossings: 				switch_NAA3_level_crossings;
@@ -7166,11 +7166,11 @@ if (railtype_available("NAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_NAA3_depots;
 		  //signals:
 			fences:          				switch_NAA3_fences;
-			gui:							switch_NAA3_gui;
+			gui:						switch_NAA3_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NAA3_tunnel_overlay;
+			tunnel_overlay:				switch_NAA3_tunnel_overlay;
 				}
 			}
 		}
@@ -7181,31 +7181,31 @@ if (railtype_available("NAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, NBA3, 27) {
 		property {
-			label:							"NBA3";
+			label:						"NBA3";
 			name:                       	string(STR_NAME_NBA3);
 			toolbar_caption:    			string(STR_TOOLBAR_NBA3);
 			menu_text:                  	string(STR_MENU_NBA3);
 			build_window_caption:			string(STR_BUILD_CAPTION_NAA3);
 			autoreplace_text:           	string(STR_AUTOREPLACE_NAA3);
 			new_engine_text:            	string(STR_NEW_ENGINE_NAA3);
-			compatible_railtype_list:   	["NAA3", "NBA3", "NAB3"];
-			powered_railtype_list:      	["NAA3", "NBA3", "NAB3"];
-			alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
+		//	compatible_railtype_list:   	["NAA3", "NBA3", "NAB3"];
+		//	powered_railtype_list:      	["NAA3", "NBA3", "NAB3"];
+		//	alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["NAA3"];
 			introduction_date: 				date(1960,01,01);
 			construction_cost:          	(param_speed_19)/5+10;
-			maintenance_cost:				(param_speed_19)/5+10;
+			maintenance_cost:			(param_speed_19)/5+10;
 			speed_limit:                	(param_speed_19) km/h;
 			acceleration_model:         	ACC_MODEL_RAIL;
-			map_colour:						102;
-			sort_order:						30;
+			map_colour:					102;
+			sort_order:					30;
 				}
 		graphics {
 			track_overlay:   				switch_NBA3_overlay;
-			precombined:					switch_NBA3_precombined;
+			precombined:				switch_NBA3_precombined;
 			underlay:        				switch_NBA3_underlay;
 			bridge_surfaces: 				switch_NBA3_bridge;
 			level_crossings: 				switch_NBA3_level_crossings;
@@ -7213,11 +7213,11 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			depots:          				switch_NBA3_depots;
 		//signals:
 			fences:          				switch_NBA3_fences;
-			gui:							switch_NBA3_gui;
+			gui:						switch_NBA3_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_NBA3_tunnel_overlay;
+			tunnel_overlay:				switch_NBA3_tunnel_overlay;
 				}
 			}
 		}
@@ -7227,31 +7227,31 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 //============================================================================
 	item(FEAT_RAILTYPES, MONO, 2) {
 		property {
-			label:							"MONO";
+			label:						"MONO";
 			name:                       	string(STR_NAME_MONO);
 			toolbar_caption:    			string(STR_TOOLBAR_MONO);
 			menu_text:                  	string(STR_MENU_MONO);
-			compatible_railtype_list:   	["MONO"];
-			powered_railtype_list:      	["MONO"];
-			alternative_railtype_list:		["MONO"];
+		//	compatible_railtype_list:   	["MONO"];
+		//	powered_railtype_list:      	["MONO"];
+		//	alternative_railtype_list:		["MONO"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_MONORAIL;
 			construction_cost:          	80;
-			maintenance_cost:				80;
+			maintenance_cost:			80;
 			acceleration_model:         	ACC_MODEL_MONORAIL;
-			map_colour:						165;
-			sort_order:						31;
+			map_colour:					165;
+			sort_order:					31;
 				}
 		graphics {
 			track_overlay:   				switch_MONO_overlay;
-			precombined:					switch_MONO_precombined;
+			precombined:				switch_MONO_precombined;
 			underlay:        				switch_MONO_underlay;
 			tunnels:         				switch_MONO_tunnel;
 			depots:          				switch_MONO_depots;
 		  //signals:
 			fences:          				switch_MONO_fences;
-			gui:							switch_MONO_gui;
+			gui:						switch_MONO_gui;
 				}
 	if (grf_future_status("UFI\01")) {
 		graphics {
@@ -7264,7 +7264,7 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_MONO_tunnel_overlay;
+			tunnel_overlay:				switch_MONO_tunnel_overlay;
 				}
 			}
     	}
@@ -7273,31 +7273,31 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 //============================================================================
 	item(FEAT_RAILTYPES, MGLV, 3) {
 		property {
-			label:							"MGLV";
+			label:						"MGLV";
 			name:                       	string(STR_NAME_MGLV);
 			toolbar_caption:    			string(STR_TOOLBAR_MGLV);
 			menu_text:                  	string(STR_MENU_MGLV);
-			compatible_railtype_list:   	["MGLV"];
-			powered_railtype_list:      	["MGLV"];
-			alternative_railtype_list:		["MGLV"];
+		//	compatible_railtype_list:   	["MGLV"];
+		//	powered_railtype_list:      	["MGLV"];
+		//	alternative_railtype_list:		["MGLV"];
 			railtype_flags:             	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_DISALLOW_90DEG);
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_MAGLEV;
 			construction_cost:          	160;
-			maintenance_cost:				160;
+			maintenance_cost:			160;
 			acceleration_model:         	ACC_MODEL_MAGLEV;
-			map_colour:						194;
-			sort_order:						32;
+			map_colour:					194;
+			sort_order:					32;
 				}
 		graphics {
 			track_overlay:   				switch_MGLV_overlay;
-			precombined:					switch_MGLV_precombined;
+			precombined:				switch_MGLV_precombined;
 			underlay:        				switch_MGLV_underlay;
 			tunnels:         				switch_MGLV_tunnel;
 			depots:          				switch_MGLV_depots;
 		  //signals:
 			fences:          				switch_MGLV_fences;
-			gui:							switch_MGLV_gui;
+			gui:						switch_MGLV_gui;
 				}
 	if (grf_future_status("UFI\01")) {
 		graphics {
@@ -7310,7 +7310,7 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:					switch_MGLV_tunnel_overlay;
+			tunnel_overlay:				switch_MGLV_tunnel_overlay;
 				}
 			}
 		}
