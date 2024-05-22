@@ -1,6 +1,6 @@
 ##grflangid 0x01
 
-STR_GRF_NAME					:U&ReRMM 2 1.6.1
+STR_GRF_NAME					:U&ReRMM 2 Standardized Label Fork 1.6.1
 STR_GRF_DESCRIPTION				:New railway railways (from slowest to fastest), metro line, narrow-gauge line, monorail and maglev with new graphics:{}{YELLOW}U&ReRMM 2{}{}{BLACK}Requires version {SILVER}1.13.0 {BLACK}or later{}{}©2020 Yuri Gashin{}Draw or coded by {LTBLUE}Ufiby™{}{BLACK}License: {SILVER}CC-BY-NC-SA 3.0{}
 STR_GRF_URL						:https://www.tt-forums.net/viewtopic.php?t=84591
 
