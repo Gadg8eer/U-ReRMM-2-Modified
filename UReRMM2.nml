@@ -1,8 +1,8 @@
 grf {
 	grfid: "UFI\90";
-	name: string(STR_GRF_NAME);
-	desc: string(STR_GRF_DESCRIPTION);
-	url:	string(STR_GRF_URL);
+	name: string(STR_GRF_NAME_UReRMM2);
+	desc: string(STR_GRF_DESCRIPTION_UReRMM2);
+	url:	string(STR_GRF_URL_UReRMM2);
 	version: 301;
 	min_compatible_version: 301;
 			param 0 {
