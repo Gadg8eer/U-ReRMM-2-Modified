@@ -557,6 +557,26 @@ template tmpl_ufiby_depot(x) {
 	[	346+x,	715,	 64,	 61,	-9,	-45]
 }
 
+template rail_depot_template_gadg8eer(x, y)
+{
+  [ x+40, y+61, 24, 25, 9, -2]   
+  [    x,    y, 64, 53, -9, -37] 
+  [ x+80, y+61, 24, 25, -31, -2] 
+  [ x+80, y,    64, 53, -53, -37]
+  [x+240, y,    64, 53, -53, -37]
+  [x+160, y,    64, 53, -9, -37] 
+}
+
+template rail_depot_snow_template_gadg8eer(x, y)
+{
+  [ x+40, y+61, 24, 25, 9, -2]   
+  [    x,    y, 64, 53, -9, -37] 
+  [ x+80, y+61, 24, 25, -31, -2] 
+  [ x+80,    y, 64, 53, -53, -37]
+  [x+240,    y, 64, 53, -53, -37]
+  [x+160,    y, 64, 53, -9, -37] 
+}
+
 template tmpl_ufiby_pylons_catenary(y) {
 	[	 553,	 627+y,	20,	28,	-9,	 -25]
 	[	 578,	 627+y,	20,	28,	-9,	 -25]
@@ -1009,14 +1029,14 @@ template tmpl_generic_gui_UGUI() {
 //============================================================================
 //						BRANCH LINE (SAAN)
 //============================================================================
-spriteset(switch_SAAN_overlay, "gfx/SAAN.png") {											// OVERLAY
+spriteset(switch_SAAN_overlay, "gfx/rails/RAIL/SAAN/SAAN.png") {											// OVERLAY
 	tmpl_overlay_type()
 }
 
-spriteset(normal_SAAN_precombined, "gfx/SAAN.png") {										// PRECOMBINED
+spriteset(normal_SAAN_precombined, "gfx/rails/RAIL/SAAN/SAAN_combined.png") {										// PRECOMBINED
 	tmpl_precombined_type()
 }
-spriteset(snow_SAAN_precombined, "gfx/SAAN_1.png") {
+spriteset(snow_SAAN_precombined, "gfx/rails/RAIL/SAAN/SAAN_combined_snow.png") {
 	tmpl_precombined_type()
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_precombined, terrain_type) {
@@ -1024,10 +1044,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_precombined, terrain_type) {
 	normal_SAAN_precombined;
 }
 
-spriteset(normal_SAAN_underlay, "gfx/SAAN.png") {											// UNDERLAY
+spriteset(normal_SAAN_underlay, "gfx/rails/RAIL/SAAN/SAAN.png") {											// UNDERLAY
 	tmpl_underlay_type(0)
 }
-spriteset(snow_SAAN_underlay, "gfx/SAAN.png") {
+spriteset(snow_SAAN_underlay, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_underlay_type(80)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_underlay, terrain_type) {
@@ -1035,10 +1055,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_underlay, terrain_type) {
 	normal_SAAN_underlay;
 }
 
-spriteset(normal_SAAN_bridge, "gfx/SAAN.png") {												// BRIDGE
+spriteset(normal_SAAN_bridge, "gfx/rails/RAIL/SAAN/SAAN.png") {												// BRIDGE
 	tmpl_bridge_surfaces(0)
 }
-spriteset(snow_SAAN_bridge, "gfx/SAAN.png") {
+spriteset(snow_SAAN_bridge, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_bridge_surfaces(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_bridge, terrain_type) {
@@ -1046,28 +1066,28 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_bridge, terrain_type) {
 	normal_SAAN_bridge;
 }
 
-spriteset(normal_SAAN_lc_right_townzone_edge, "gfx/SAAN.png") {								// LEVEL_CROSSING
+spriteset(normal_SAAN_lc_right_townzone_edge, "gfx/rails/RAIL/SAAN/SAAN.png") {								// LEVEL_CROSSING
 	tmpl_level_crossings(0,0,0,0)
 }
-spriteset(snow_SAAN_lc_right_townzone_edge, "gfx/SAAN.png") {
+spriteset(snow_SAAN_lc_right_townzone_edge, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_level_crossings(0,45,0,0)
 }
-spriteset(normal_SAAN_lc_right_townzone, "gfx/SAAN.png") {
+spriteset(normal_SAAN_lc_right_townzone, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_level_crossings(138,0,0,0)
 }
-spriteset(snow_SAAN_lc_right_townzone, "gfx/SAAN.png") {
+spriteset(snow_SAAN_lc_right_townzone, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_level_crossings(138,45,0,0)
 }
-spriteset(normal_SAAN_lc_left_townzone_edge, "gfx/SAAN.png") {
+spriteset(normal_SAAN_lc_left_townzone_edge, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_level_crossings(0,0,276,0)
 }
-spriteset(snow_SAAN_lc_left_townzone_edge, "gfx/SAAN.png") {
+spriteset(snow_SAAN_lc_left_townzone_edge, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_level_crossings(0,45,276,0)
 }
-spriteset(normal_SAAN_lc_left_townzone, "gfx/SAAN.png") {
+spriteset(normal_SAAN_lc_left_townzone, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_level_crossings(138,0,276,0)
 }
-spriteset(snow_SAAN_lc_left_townzone, "gfx/SAAN.png") {
+spriteset(snow_SAAN_lc_left_townzone, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_level_crossings(138,45,276,0)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_lc_right_townzone_edge, terrain_type) { 
@@ -1099,10 +1119,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_level_crossings, traffic_side) {
 	switch_SAAN_lc_right;
 }
 
-spriteset(normal_SAAN_tunnel_overlay, "gfx/SAAN.png") {										// TUNNEL_OVERLAY
+spriteset(normal_SAAN_tunnel_overlay, "gfx/rails/RAIL/SAAN/SAAN.png") {										// TUNNEL_OVERLAY
 	tmpl_tunnel_overlay_type(0)
 }
-spriteset(snow_SAAN_tunnel_overlay, "gfx/SAAN.png") {
+spriteset(snow_SAAN_tunnel_overlay, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_tunnel_overlay_type(276)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_tunnel_overlay, terrain_type) {
@@ -1110,16 +1130,16 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_tunnel_overlay, terrain_type) {
 	normal_SAAN_tunnel_overlay;
 }
 
-spriteset(normal_SAAN_tunnel_1, "gfx/SAAN.png") {											// TUNNEL
+spriteset(normal_SAAN_tunnel_1, "gfx/rails/RAIL/SAAN/SAAN.png") {											// TUNNEL
 	tmpl_tunnel_type(0)
 }
-spriteset(snow_SAAN_tunnel_1, "gfx/SAAN.png") {
+spriteset(snow_SAAN_tunnel_1, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_tunnel_type(276)
 }
-spriteset(normal_SAAN_tunnel_0, "gfx/SAAN_1.png") {											// TUNNEL
+spriteset(normal_SAAN_tunnel_0, "gfx/rails/RAIL/SAAN/SAAN_snow.png") {											// TUNNEL
 	tmpl_tunnel_type(0)
 }
-spriteset(snow_SAAN_tunnel_0, "gfx/SAAN_1.png") {
+spriteset(snow_SAAN_tunnel_0, "gfx/rails/RAIL/SAAN/SAAN_snow.png") {
 	tmpl_tunnel_type(276)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_tunnel_1, terrain_type) {
@@ -1135,17 +1155,17 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_tunnel, param_tunnel) {
 	switch_SAAN_tunnel_0;
 }
 
-spriteset(normal_SAAN_depots_1, "gfx/SAAN.png") {											//DEPOTS
-	tmpl_depot(0)
+spriteset(normal_SAAN_depots_1, "gfx/depots/depot_swedish_brick.png") {											//DEPOTS
+	rail_depot_template_gadg8eer(0)
 }
-spriteset(snow_SAAN_depots_1, "gfx/SAAN.png") {
-	tmpl_depot(414)
+spriteset(snow_SAAN_depots_1, "gfx/depots/depot_swedish_brick.png") {
+	rail_depot_template_gadg8eer(414)
 }
-spriteset(normal_SAAN_depots_2, "gfx/SAAN_1.png") {
-	tmpl_depot(0)
+spriteset(normal_SAAN_depots_2, "gfx/depots/depot_swedish_concrete.png") {
+	rail_depot_template_gadg8eer(0)
 }
-spriteset(snow_SAAN_depots_2, "gfx/SAAN_1.png") {
-	tmpl_depot(414)
+spriteset(snow_SAAN_depots_2, "gfx/depots/depot_swedish_concrete.png") {
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_depots_1, terrain_type) {
 	TILETYPE_SNOW: snow_SAAN_depots_1;
@@ -1160,10 +1180,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_depots, max(build_date - date(1959,1,1)
 	switch_SAAN_depots_2;
 }
 
-spriteset(fences_SAAN, "gfx/SAAN.png") {
+spriteset(fences_SAAN, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_fences(0)
 }
-spriteset(fences_SAAN_cc, "gfx/SAAN.png") {
+spriteset(fences_SAAN_cc, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_fences(43)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAN_fences, param_fences) {
@@ -1173,13 +1193,13 @@ switch(FEAT_RAILTYPES, SELF, switch_SAAN_fences, param_fences) {
 	4: fences_SAAN_cc;
 }
 
-spriteset(gui_SAAN_UGUI, "gfx/SAAN.png") {													//GUI						
+spriteset(gui_SAAN_UGUI, "gfx/rails/RAIL/SAAN/SAAN.png") {													//GUI						
 	tmpl_gui_UGUI()
 }
-spriteset(gui_SAAN_opengfx, "gfx/SAAN.png") {												
+spriteset(gui_SAAN_opengfx, "gfx/rails/RAIL/SAAN/SAAN.png") {												
 	tmpl_gui_gfx()
 }
-spriteset(gui_SAAN_ttd, "gfx/SAAN.png") {
+spriteset(gui_SAAN_ttd, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_gui_ttd()
 }
 switch (FEAT_RAILTYPES, SELF, switch_SAAN_gui, param_gui) {
@@ -1373,16 +1393,16 @@ switch(FEAT_RAILTYPES, SELF, switch_SBAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_SBAN_depots_1, "gfx/SBAN.png") {											//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SBAN_depots_1, "gfx/SBAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 spriteset(normal_SBAN_depots_2, "gfx/SBAN_1.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SBAN_depots_2, "gfx/SBAN_1.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SBAN_depots_1, terrain_type) {
 	TILETYPE_SNOW: snow_SBAN_depots_1;
@@ -1439,16 +1459,16 @@ switch (FEAT_RAILTYPES, SELF, switch_SBAE_pylons_catenary, random_bits) {
 }
 
 spriteset(normal_SBAE_depots_1, "gfx/SBAE.png") {											//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SBAE_depots_1, "gfx/SBAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 spriteset(normal_SBAE_depots_2, "gfx/SBAE_1.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SBAE_depots_2, "gfx/SBAE_1.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SBAE_depots_1, terrain_type) {
 	TILETYPE_SNOW: snow_SBAE_depots_1;
@@ -1663,10 +1683,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SCAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_SCAN_depots, "gfx/SCAN.png") {												//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SCAN_depots, "gfx/SCAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SCAN_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SCAN_depots;
@@ -1715,10 +1735,10 @@ switch (FEAT_RAILTYPES, SELF, switch_SCAE_pylons_catenary, random_bits) {
 }
 
 spriteset(normal_SCAE_depots, "gfx/SCAE.png") {												//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SCAE_depots, "gfx/SCAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SCAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SCAE_depots;
@@ -1925,10 +1945,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SDAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_SDAN_depots, "gfx/SDAN.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SDAN_depots, "gfx/SDAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SDAN_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SDAN_depots;
@@ -1966,10 +1986,10 @@ switch (FEAT_RAILTYPES, SELF, switch_SDAN_gui, param_gui) {
 //						HIGHSPEED MAIN LINE EL(SDAE)
 //============================================================================
 spriteset(normal_SDAE_depots, "gfx/SDAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SDAE_depots, "gfx/SDAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SDAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SDAE_depots;
@@ -2043,10 +2063,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SEAE_bridge, terrain_type) {
 }
 
 spriteset(normal_SEAE_depots, "gfx/SEAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SEAE_depots, "gfx/SEAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SEAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SEAE_depots;
@@ -2169,10 +2189,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SFAE_bridge, terrain_type) {
 }
 
 spriteset(normal_SFAE_depots, "gfx/SFAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SFAE_depots, "gfx/SFAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SFAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SFAE_depots;
@@ -2439,10 +2459,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SUAE_tunnel, param_tunnel) {
 }
 
 spriteset(normal_SUAE_depots, "gfx/SUAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SUAE_depots, "gfx/SUAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SUAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SUAE_depots;
@@ -2673,16 +2693,16 @@ switch(FEAT_RAILTYPES, SELF, switch_SAA3_tunnel, param_tunnel) {
 }
 
 spriteset(normal_SAA3_depots_1, "gfx/SAA3.png") {												//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SAA3_depots_1, "gfx/SAA3.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 spriteset(normal_SAA3_depots_2, "gfx/SAA3_1.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SAA3_depots_2, "gfx/SAA3_1.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAA3_depots_1, terrain_type) {
 	TILETYPE_SNOW: snow_SAA3_depots_1;
@@ -2910,10 +2930,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SBA3_tunnel, param_tunnel) {
 }
 
 spriteset(normal_SBA3_depots, "gfx/SBA3.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SBA3_depots, "gfx/SBA3.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SBA3_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SBA3_depots;
@@ -3133,10 +3153,10 @@ switch(FEAT_RAILTYPES, SELF, switch_SUA3_tunnel, param_tunnel) {
 }
 
 spriteset(normal_SUA3_depots, "gfx/SUA3.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SUA3_depots, "gfx/SUA3.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SUA3_depots, terrain_type) {
 	TILETYPE_SNOW: snow_SUA3_depots;
@@ -3174,10 +3194,10 @@ switch (FEAT_RAILTYPES, SELF, switch_SUA3_gui, param_gui) {
 //						METRO LINE (SAAZ)
 //============================================================================ 
 spriteset(normal_SAAZ_depots, "gfx/SAAZ.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SAAZ_depots, "gfx/SAAZ.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SAAZ_depots, terrain_type) {								//DEPOTS
 	TILETYPE_SNOW: snow_SAAZ_depots;
@@ -3202,10 +3222,10 @@ switch (FEAT_RAILTYPES, SELF, switch_SAAZ_gui, param_gui) {
 //					IMPROVED METRO LINE (SBAZ)
 //============================================================================ 
 spriteset(normal_SBAZ_depots, "gfx/SBAZ.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SBAZ_depots, "gfx/SBAZ.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SBAZ_depots, terrain_type) {								//DEPOTS
 	TILETYPE_SNOW: snow_SBAZ_depots;
@@ -3230,10 +3250,10 @@ switch (FEAT_RAILTYPES, SELF, switch_SBAZ_gui, param_gui) {
 //					URBAN METRO LINE (SUAZ)
 //============================================================================ 
 spriteset(normal_SUAZ_depots, "gfx/SUAZ.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_SUAZ_depots, "gfx/SUAZ.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_SUAZ_depots, terrain_type) {								//DEPOTS
 	TILETYPE_SNOW: snow_SUAZ_depots;
@@ -3440,10 +3460,10 @@ switch(FEAT_RAILTYPES, SELF, switch_dAAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_dAAN_depots, "gfx/dAAN.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_dAAN_depots, "gfx/dAAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_dAAN_depots, terrain_type) {
 	TILETYPE_SNOW: snow_dAAN_depots;
@@ -3663,10 +3683,10 @@ switch(FEAT_RAILTYPES, SELF, switch_dBAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_dBAN_depots, "gfx/dBAN.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_dBAN_depots, "gfx/dBAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_dBAN_depots, terrain_type) {
 	TILETYPE_SNOW: snow_dBAN_depots;
@@ -3704,10 +3724,10 @@ switch (FEAT_RAILTYPES, SELF, switch_dBAN_gui, param_gui) {
 //						NORMAL + NARROW GAUGE LINE (ELECTRIFIED) (dBAE)
 //============================================================================
 spriteset(normal_dBAE_depots, "gfx/dBAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_dBAE_depots, "gfx/dBAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_dBAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_dBAE_depots;
@@ -3914,16 +3934,16 @@ switch(FEAT_RAILTYPES, SELF, switch_NAAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_NAAN_depots_1, "gfx/NAAN.png") {												//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NAAN_depots_1, "gfx/NAAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 spriteset(normal_NAAN_depots_2, "gfx/NAAN_1.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NAAN_depots_2, "gfx/NAAN_1.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NAAN_depots_1, terrain_type) {
 	TILETYPE_SNOW: snow_NAAN_depots_1;
@@ -3969,16 +3989,16 @@ switch (FEAT_RAILTYPES, SELF, switch_NAAN_gui, param_gui) {
 //						NARROW LINE EL(NAAE)
 //============================================================================
 spriteset(normal_NAAE_depots_1, "gfx/NAAE.png") {												//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NAAE_depots_1, "gfx/NAAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 spriteset(normal_NAAE_depots_2, "gfx/NAAE_1.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NAAE_depots_2, "gfx/NAAE_1.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NAAE_depots_1, terrain_type) {
 	TILETYPE_SNOW: snow_NAAE_depots_1;
@@ -4204,10 +4224,10 @@ switch(FEAT_RAILTYPES, SELF, switch_NBAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_NBAN_depots, "gfx/NBAN.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NBAN_depots, "gfx/NBAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NBAN_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NBAN_depots;
@@ -4245,10 +4265,10 @@ switch (FEAT_RAILTYPES, SELF, switch_NBAN_gui, param_gui) {
 //					IMPROVED NARROW LINE EL(NBAE)
 //============================================================================
 spriteset(normal_NBAE_depots, "gfx/NBAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NBAE_depots, "gfx/NBAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NBAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NBAE_depots;
@@ -4467,10 +4487,10 @@ switch(FEAT_RAILTYPES, SELF, switch_NCAN_tunnel, param_tunnel) {
 }
 
 spriteset(normal_NCAN_depots, "gfx/NCAN.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NCAN_depots, "gfx/NCAN.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NCAN_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NCAN_depots;
@@ -4508,10 +4528,10 @@ switch (FEAT_RAILTYPES, SELF, switch_NCAN_gui, param_gui) {
 //					MODERN NARROW LINE EL(NCAE)
 //============================================================================
 spriteset(normal_NCAE_depots, "gfx/NCAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NCAE_depots, "gfx/NCAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NCAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NCAE_depots;
@@ -4729,10 +4749,10 @@ switch(FEAT_RAILTYPES, SELF, switch_NDAE_tunnel, param_tunnel) {
 }
 
 spriteset(normal_NDAE_depots, "gfx/NDAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NDAE_depots, "gfx/NDAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NDAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NDAE_depots;
@@ -4974,10 +4994,10 @@ switch (FEAT_RAILTYPES, SELF, switch_NUAE_pylons_catenary, random_bits) {
 }
 
 spriteset(normal_NUAE_depots, "gfx/NUAE.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NUAE_depots, "gfx/NUAE.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NUAE_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NUAE_depots;
@@ -5197,10 +5217,10 @@ switch(FEAT_RAILTYPES, SELF, switch_NAA3_tunnel, param_tunnel) {
 }
 
 spriteset(normal_NAA3_depots, "gfx/NAA3.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NAA3_depots, "gfx/NAA3.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NAA3_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NAA3_depots;
@@ -5420,10 +5440,10 @@ switch(FEAT_RAILTYPES, SELF, switch_NBA3_tunnel, param_tunnel) {
 }
 
 spriteset(normal_NBA3_depots, "gfx/NBA3.png") {													//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_NBA3_depots, "gfx/NBA3.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_NBA3_depots, terrain_type) {
 	TILETYPE_SNOW: snow_NBA3_depots;
@@ -5537,16 +5557,16 @@ switch(FEAT_RAILTYPES, SELF, switch_MONO_tunnel, param_tunnel) {
 }
 
 spriteset(normal_MONO_depots_1, "gfx/MONO.png") {												//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_MONO_depots_1, "gfx/MONO.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 spriteset(normal_MONO_depots_2, "gfx/MONO_1.png") {
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_MONO_depots_2, "gfx/MONO_1.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_MONO_depots_1, terrain_type) {
 	TILETYPE_SNOW: snow_MONO_depots_1;
@@ -5668,10 +5688,10 @@ switch(FEAT_RAILTYPES, SELF, switch_MGLV_tunnel, param_tunnel) {
 }
 
 spriteset(normal_MGLV_depots, "gfx/MGLV.png") {														//DEPOTS
-	tmpl_depot(0)
+	rail_depot_template_gadg8eer(0)
 }
 spriteset(snow_MGLV_depots, "gfx/MGLV.png") {
-	tmpl_depot(414)
+	rail_depot_template_gadg8eer(414)
 }
 switch(FEAT_RAILTYPES, SELF, switch_MGLV_depots, terrain_type) {
 	TILETYPE_SNOW: snow_MGLV_depots;
@@ -5708,7 +5728,7 @@ switch (FEAT_RAILTYPES, SELF, switch_MGLV_gui, param_gui) {
 //============================================================================
 //							FENCES
 //============================================================================
-spriteset(fences_empty, "gfx/SAAN.png") {
+spriteset(fences_empty, "gfx/rails/RAIL/SAAN/SAAN.png") {
 	tmpl_fences_empty()
 }
 //============================================================================
