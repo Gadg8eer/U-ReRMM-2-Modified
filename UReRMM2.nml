@@ -1,8 +1,8 @@
 grf {
 	grfid: "UFI\90";
-	name: string(STR_GRF_NAME_UReRMM2);
-	desc: string(STR_GRF_DESCRIPTION_UReRMM2);
-	url:	string(STR_GRF_URL_UReRMM2);
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESCRIPTION);
+	url:	string(STR_GRF_URL);
 	version: 301;
 	min_compatible_version: 301;
 			param 0 {
@@ -3275,7 +3275,7 @@ switch (FEAT_RAILTYPES, SELF, switch_SUAZ_gui, param_gui) {
 	gui_SUAZ_ttd;
 }
 //============================================================================
-//						STANDAR + NARROW GAUGE LINE (dAAN)
+//						STANDARD + NARROW GAUGE LINE (dAAN)
 //============================================================================ 
 spriteset(switch_dAAN_overlay, "gfx/dAAN.png") {												// OVERLAY
 	tmpl_overlay_type()
@@ -3498,7 +3498,7 @@ switch (FEAT_RAILTYPES, SELF, switch_dAAN_gui, param_gui) {
 	gui_dAAN_ttd;
 }
 //============================================================================
-//						STANDAR + NARROW GAUGE LINE (dBAN)
+//						STANDARD + NARROW GAUGE LINE (dBAN)
 //============================================================================ 
 spriteset(switch_dBAN_overlay, "gfx/dBAN.png") {												// OVERLAY
 	tmpl_overlay_type()
@@ -5752,9 +5752,9 @@ spriteset(switch_SUAE_wires_standar_rail, "gfx/WIRES/WIRES.png") {
 //						LOW RAILWAY (SAAN)
 //============================================================================
 
-	item(FEAT_RAILTYPES, RAIL, 0) {
+	item(FEAT_RAILTYPES, SAAN, 0) {
 		property {
-			label:							"RAIL";
+			label:							"SAAN";
 			name:						 	string(STR_NAME_SAAN);
 			toolbar_caption:				string(STR_TOOLBAR_SAAN);
 			menu_text:						string(STR_MENU_SAAN);
@@ -5762,70 +5762,53 @@ spriteset(switch_SUAE_wires_standar_rail, "gfx/WIRES/WIRES.png") {
 			autoreplace_text:			 	string(STR_AUTOREPLACE_RAIL);
 			new_engine_text:				string(STR_NEW_ENGINE_RAIL);
 			railtype_flags:				bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-		//	curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
-		//	construction_cost:				(param_speed_1)/5+8;
-		//	maintenance_cost:				(param_speed_1)/5+8;
+			construction_cost:				(param_speed_1)/5+8;
+			maintenance_cost:				(param_speed_1)/5+8;
 			speed_limit:					(param_speed_1) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:						20;
 			sort_order:						2;
 		}
-	if (param_axle_weight == 0 && param_realism == 0) {
-		property {
-			compatible_railtype_list:	 	["RAIL", "ELRL", "SA_N",
-											"SAAN", "SBAN", "SCAN", "SDAN",	
-											"SABN", "SACN", "SADN", "SAEN",
-											"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-											"SAAE", "SABE", "SACE", "SADE", "SAEE",
-											"SAAD", "SABD", "SACD", "SADD", "SAED",
-											"SAAd", "SABd", "SACd", "SADd", "SAEd",
-											"SAAA", "SABA", "SACA", "SADA", "SAEA",
-											"SAAa", "SABa", "SACa", "SADa", "SAEa",
-											"dAAN", "dBAN", "dBAE",
-											"SAA3", "SBA3", "SUA3",
-											"SAAZ", "SBAZ", "SUAZ"];
-			powered_railtype_list:			["RAIL", "ELRL",
-											"SAAN", "SBAN", "SCAN", "SDAN",
-											"SABN", "SACN", "SADN", "SAEN",
-											"SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-											"SABE", "SACE", "SADE", "SAEE",
-											"dAAN", "dBAN", "dBAE"];
-			alternative_railtype_list:		["RAIL",
-											"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-											"SABN", "SACN", "SADN", "SAEN"];											//Axle load class [**X*]
+		if (param_axle_weight == 0 && param_realism == 0) {
+			property {
+				compatible_railtype_list:	 	["RAIL", "ELRL"];
+				powered_railtype_list:			["RAIL", "ELRL"];
+				alternative_railtype_list:		["RAIL"];											//Axle load class [**X*]
 			}
 		}
-	if (param_axle_weight == 1) {
-		property {
-			// 2012 Railtype Standardization Scheme
-			}
-		}
-	if (param_realism == 1) {
-	if (param_3rd == 3) {
-		property {
-			powered_railtype_list:			["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+		if (param_3rd == 3) {
+			property {
+				powered_railtype_list:			["3RDR", "MTRO"];
 			}
 		} else
-	if (param_3rd == 2) {
-		property {
-			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+		if (param_3rd == 2) {
+			property {
+				powered_railtype_list:			[];
 			}
 		} else
-	if (param_3rd == 1) {
-		property {
-			powered_railtype_list:			["SAA3", "SBA3", "SUA3"];
+		if (param_3rd == 1) {
+			property {
+				powered_railtype_list:			["3RDR", "MTRO"];
 			}
 		}
-	if (param_speed_1 == 29 ) {
-		property {
-			railtype_flags:					bitmask(RAILTYPE_FLAG_HIDDEN);
-			introduces_railtype_list:		["SBAN"];
-				}
+		if (param_speed_1 == 29 ) {
+			property {
+				railtype_flags:					bitmask(RAILTYPE_FLAG_HIDDEN);
+				introduces_railtype_list:		["SBAN"];
 			}
-	if (param_speed_2 == 29 ) {
+		}
+		if (param_speed_2 == 29 ) {
+			property {
+				introduces_railtype_list:		["SCAN"];
+			}
+		}
+	if (param_axle_weight == 1 || param_realism == 1) {
 		property {
-			introduces_railtype_list:		["SCAN"];
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
 			}
 		}
 		graphics {
@@ -5839,90 +5822,78 @@ spriteset(switch_SUAE_wires_standar_rail, "gfx/WIRES/WIRES.png") {
 		//	signals:
 			fences:							switch_SAAN_fences;
 			gui:							switch_SAAN_gui;
-				}
+		}
 	if (param_tunnel == 1) {		
 		graphics {
 			tunnel_overlay:					switch_SAAN_tunnel_overlay;
-				}
-			}
 		}
+	}
+}
 //============================================================================
 //						RAILWAY (SBAN)
 //============================================================================
 if (param_speed_2 != 29) {
-if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
-	item(FEAT_RAILTYPES, SBAN, 5) {
-		property {
-			label:							"SBAN";
-			name:						 	string(STR_NAME_SBAN);
-			toolbar_caption:				string(STR_TOOLBAR_SBAN);
-			menu_text:						string(STR_MENU_SBAN);
-			build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
-			autoreplace_text:			 	string(STR_AUTOREPLACE_RAIL);
-			new_engine_text:				string(STR_NEW_ENGINE_RAIL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SABE", "SACE", "SADE", "SAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["RAIL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-		//									"SABN", "SACN", "SADN", "SAEN"];											//Axle load class [**X*]
-			railtype_flags:					bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-		//	curve_speed_multiplier:	 	1;
-			station_graphics:			 	RAILTYPE_STATION_NORMAL;
-			requires_railtype_list:			["RAIL"];
-			introduction_date: 				date(1900,01,01);
-//		//	construction_cost:				(param_speed_2)/5+10;
-//		//	maintenance_cost:				(param_speed_2)/5+10;
-			speed_limit:					(param_speed_2) km/h;
-			acceleration_model:		 	ACC_MODEL_RAIL;
-			map_colour:						21;
-			sort_order:						3;
+	if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
+		item(FEAT_RAILTYPES, SBAN, 5) {
+			if (param_axle_weight == 0 && param_realism == 0) {
+				property {
+					label:							"SBAN";
+					name:						 	string(STR_NAME_SBAN);
+					toolbar_caption:				string(STR_TOOLBAR_SBAN);
+					menu_text:						string(STR_MENU_SBAN);
+					build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
+					autoreplace_text:			 	string(STR_AUTOREPLACE_RAIL);
+					new_engine_text:				string(STR_NEW_ENGINE_RAIL);
+					compatible_railtype_list:	 	["RAIL", "ELRL"];
+					powered_railtype_list:			["RAIL", "ELRL"];
+					alternative_railtype_list:		["RAIL"];											//Axle load class [**X*]
+					railtype_flags:					bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
+					curve_speed_multiplier:	 	1;
+					station_graphics:			 	RAILTYPE_STATION_NORMAL;
+					requires_railtype_list:			["RAIL"];
+					introduction_date: 				date(1900,01,01);
+					construction_cost:				(param_speed_2)/5+10;
+					maintenance_cost:				(param_speed_2)/5+10;
+					speed_limit:					(param_speed_2) km/h;
+					acceleration_model:		 	ACC_MODEL_RAIL;
+					map_colour:						21;
+					sort_order:						3;
+			}
+			if (param_axle_weight == 1 || param_realism == 1) {
+				property {
+					// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+					// TEST: Tracktype Extended Standardization Template
+					// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+			if (param_3rd == 3) {
+				property {
+					powered_railtype_list:			["3RDR", "MTRO"];
 				}
-	if (param_3rd == 3) {
-		property {
-			powered_railtype_list:			["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+				} else if (param_3rd == 2) {
+					property {
+						powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+					}
+				} else if (param_3rd == 1) {
+					property {
+							powered_railtype_list:			["3RDR", "MTRO"];
+					}
+				}
 			}
-		} else
-	if (param_3rd == 2) {
-		property {
-			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			graphics {
+				track_overlay:	 				switch_SBAN_overlay;
+				precombined:					switch_SBAN_precombined;
+				underlay:						switch_SBAN_underlay;
+				bridge_surfaces: 				switch_SBAN_bridge;
+				level_crossings: 				switch_SBAN_level_crossings;
+				tunnels:		 				switch_SBAN_tunnel;
+				depots:							switch_SBAN_depots;
+			//	signals:						;
+				fences:							switch_SBAN_fences;
+				gui:							switch_SBAN_gui;
 			}
-		} else
-	if (param_3rd == 1) {
-		property {
-			powered_railtype_list:			["SAA3", "SBA3", "SUA3"];
-			}
-		}
-		graphics {
-			track_overlay:	 				switch_SBAN_overlay;
-			precombined:					switch_SBAN_precombined;
-			underlay:						switch_SBAN_underlay;
-			bridge_surfaces: 				switch_SBAN_bridge;
-			level_crossings: 				switch_SBAN_level_crossings;
-			tunnels:		 				switch_SBAN_tunnel;
-			depots:							switch_SBAN_depots;
-		//	signals:						;
-			fences:							switch_SBAN_fences;
-			gui:							switch_SBAN_gui;
-		}
-	if (param_tunnel == 1) {
-		graphics {
-			tunnel_overlay:				switch_SBAN_tunnel_overlay;
+			if (param_tunnel == 1) {
+				graphics {
+					tunnel_overlay:				switch_SBAN_tunnel_overlay;
 				}
 			}
 		}
@@ -5933,64 +5904,47 @@ if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 //============================================================================
 	item(FEAT_RAILTYPES, ELRL, 1) {
 		property {
-			label:						"SBAE";
+			label:							"SBAE";
 			name:						 	string(STR_NAME_SBAE);
 			toolbar_caption:				string(STR_TOOLBAR_SBAE);
 			menu_text:						string(STR_MENU_SBAE);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:				string(STR_NEW_ENGINE_ELRL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:	 		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dBAE"];
-		//	alternative_railtype_list:		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa"];
-			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:	 		["ELRL"];
+			alternative_railtype_list:		["ELRL"];
+			railtype_flags:			 		bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
+			curve_speed_multiplier:	 		1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
-		//	construction_cost:				(param_speed_2)/5+16;
-		//	maintenance_cost:			(param_speed_2)/5+16;
+			construction_cost:				(param_speed_2)/5+16;
+			maintenance_cost:				(param_speed_2)/5+16;
 			speed_limit:					(param_speed_2) km/h;
-			acceleration_model:		 	ACC_MODEL_RAIL;
-			map_colour:					149;
-			sort_order:					6;
-				}
-	if (param_speed_2 == 29 ) {
-		property {
-			railtype_flags:				bitmask(RAILTYPE_FLAG_HIDDEN);
-			introduces_railtype_list:		["SCAE"];
-				}
-			}
-	if (param_3rd > 1) {
-		property {
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			acceleration_model:		 		ACC_MODEL_RAIL;
+			map_colour:						149;
+			sort_order:						6;
+		}
+		if (param_axle_weight == 1 || param_realism == 1) {
+			property {
+				// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
 			}
 		}
+		if (param_speed_2 == 29 ) {
+			property {
+				railtype_flags:					bitmask(RAILTYPE_FLAG_HIDDEN);
+				introduces_railtype_list:		["SCAE"];
+			}
+		}
+	if (param_3rd > 1) {
+		property {
+			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+		}
+	}
 		graphics {
 			track_overlay:	 				switch_SBAN_overlay;
-			precombined:				switch_SBAN_precombined;
+			precombined:					switch_SBAN_precombined;
 			underlay:						switch_SBAN_underlay;
 			bridge_surfaces: 				switch_SBAN_bridge;
 			level_crossings: 				switch_SBAN_level_crossings;
@@ -6000,63 +5954,52 @@ if (railtype_available("SBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			catenary_wire: 					switch_wires_standar_rail;
 		//signals:
 			fences:							switch_SBAN_fences;
-			gui:						switch_SBAE_gui;
-				}
+			gui:							switch_SBAE_gui;
+		}
 	if (param_tunnel == 1) {
 		graphics {
-			tunnel_overlay:				switch_SBAN_tunnel_overlay;
-				}
-			}
+			tunnel_overlay:					switch_SBAN_tunnel_overlay;
 		}
+	}
+}
 //============================================================================
 //						MAIN RAILWAY (SCAN)
 //============================================================================
 if (railtype_available("SCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_RAILTYPES, SCAN, 7) {
 		property {
-			label:						"SCAN";
+			label:							"SCAN";
 			name:						 	string(STR_NAME_SCAN);
 			toolbar_caption:				string(STR_TOOLBAR_SCAN);
 			menu_text:						string(STR_MENU_SCAN);
 			build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_RAIL);
 			new_engine_text:				string(STR_NEW_ENGINE_RAIL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SABE", "SACE", "SADE", "SAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["RAIL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-		//									"SABN", "SACN", "SADN", "SAEN"];											//Axle load class [**X*]
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:			["RAIL", "ELRL"];
+			alternative_railtype_list:		["RAIL"];
 			railtype_flags:			 		bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-		//	curve_speed_multiplier:	 		1;
+			curve_speed_multiplier:	 		1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL"];
 			introduction_date: 				date(1930,01,01);
-		//	construction_cost:				(param_speed_3)/5+12;
-		//	maintenance_cost:				(param_speed_3)/5+12;
+			construction_cost:				(param_speed_3)/5+12;
+			maintenance_cost:				(param_speed_3)/5+12;
 			speed_limit:					(param_speed_3) km/h;
 			acceleration_model:		 		ACC_MODEL_RAIL;
 			map_colour:						22;
 			sort_order:						4;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 	if (param_3rd == 3) {
 		property {
-			powered_railtype_list:			["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["3RDR", "MTRO"];
 			}
 		} else
 	if (param_3rd == 2) {
@@ -6066,7 +6009,7 @@ if (railtype_available("SCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 		} else
 	if (param_3rd == 1) {
 		property {
-			powered_railtype_list:			["SAA3", "SBA3", "SUA3"];
+			powered_railtype_list:			["3RDR", "MTRO"];
 			}
 		}
 		graphics {
@@ -6101,48 +6044,31 @@ if (railtype_available("SCAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:				string(STR_NEW_ENGINE_ELRL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:	 		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dBAE"];
-		//	alternative_railtype_list:		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:	 		["ELRL"];
+			alternative_railtype_list:		["ELRL"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1930,01,01);
-		//	construction_cost:				(param_speed_3)/5+18;
-		//	maintenance_cost:			(param_speed_3)/5+18;
+			construction_cost:				(param_speed_3)/5+18;
+			maintenance_cost:			(param_speed_3)/5+18;
 			speed_limit:					(param_speed_3) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					150;
 			sort_order:					7;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 	if (param_3rd > 1) {
 		property {
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
@@ -6179,52 +6105,43 @@ if (railtype_available("SDAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_RAIL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_RAIL);
 			new_engine_text:				string(STR_NEW_ENGINE_RAIL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SABE", "SACE", "SADE", "SAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["RAIL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
-		//									"SABN", "SACN", "SADN", "SAEN"];											//Axle load class [**X*]
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:			["RAIL", "ELRL"];
+			alternative_railtype_list:		["RAIL",
+											"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
+											"SABN", "SACN", "SADN", "SAEN"];											//Axle load class [**X*]
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_4 == 501) ? 80 : (param_speed_4)/5+20;
-		//	maintenance_cost:			(param_speed_4 == 501) ? 80 : (param_speed_4)/5+20;
+			construction_cost:				(param_speed_4 == 501) ? 80 : (param_speed_4)/5+20;
+			maintenance_cost:			(param_speed_4 == 501) ? 80 : (param_speed_4)/5+20;
 			speed_limit:					(param_speed_4 == 501) ?	0 : (param_speed_4) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					23;
 			sort_order:					5;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 	if (param_3rd == 3) {
 		property {
-		//	powered_railtype_list:			["SAA3", "SBA3", "SUA3", "SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["3RDR", "MTRO"];
 			}
 		} else
 	if (param_3rd == 2) {
 			property {
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
 			}
 		} else
 	if (param_3rd == 1) {
 		property {
-		//	powered_railtype_list:			["SAA3", "SBA3", "SUA3"];
+			powered_railtype_list:			["3RDR", "MTRO"];
 			}
 		}
 		graphics {
@@ -6259,48 +6176,31 @@ if (railtype_available("SDAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:				string(STR_NEW_ENGINE_ELRL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:	 		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dBAE"];
-		//	alternative_railtype_list:		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:	 		["ELRL"];
+			alternative_railtype_list:		["ELRL"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
-		//	maintenance_cost:			(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
+			construction_cost:				(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
+			maintenance_cost:			(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
 			speed_limit:					(param_speed_4 == 501) ?	 0 : (param_speed_4) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					151;
 			sort_order:					8;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 	if (param_3rd > 1) {
 		property {
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
@@ -6338,48 +6238,31 @@ if (railtype_available("SEAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:				string(STR_NEW_ENGINE_ELRL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:	 		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dBAE"];
-		//	alternative_railtype_list:		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:	 		["ELRL"];
+			alternative_railtype_list:		["ELRL"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1990,01,01);
-		//	construction_cost:				(param_speed_5 == 501) ? 125 : (param_speed_5)/5+22;
-		//	maintenance_cost:			(param_speed_5 == 501) ? 125 : (param_speed_5)/5+22;
+			construction_cost:				(param_speed_5 == 501) ? 125 : (param_speed_5)/5+22;
+			maintenance_cost:			(param_speed_5 == 501) ? 125 : (param_speed_5)/5+22;
 			speed_limit:					(param_speed_5 == 501) ?	 0 : (param_speed_5) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					152;
 			sort_order:					9;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 	if (param_3rd > 1) {
 		property {
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
@@ -6417,48 +6300,31 @@ if (railtype_available("SFAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:				string(STR_NEW_ENGINE_ELRL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:	 		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dBAE"];
-		//	alternative_railtype_list:		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:	 		["ELRL"];
+			alternative_railtype_list:		["ELRL"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(2010,01,01);
-		//	construction_cost:				(param_speed_6 == 501) ? 150 : (param_speed_6)/5+24;
-		//	maintenance_cost:			(param_speed_6 == 501) ? 150 : (param_speed_6)/5+24;
+			construction_cost:				(param_speed_6 == 501) ? 150 : (param_speed_6)/5+24;
+			maintenance_cost:			(param_speed_6 == 501) ? 150 : (param_speed_6)/5+24;
 			speed_limit:					(param_speed_6 == 501) ?	 0 : (param_speed_6) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					153;
 			sort_order:					10;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 	if (param_3rd > 1) {
 		property {
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
@@ -6496,48 +6362,31 @@ if (railtype_available("SUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:				string(STR_NEW_ENGINE_ELRL);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SABN", "SACN", "SADN", "SAEN",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:	 		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa",
-		//									"dBAE"];
-		//	alternative_railtype_list:		["ELRL",
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-		//									"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
-		//									"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
-		//									"SAAd", "SABd", "SACd", "SADd", "SAEd",
-		//									"SAAA", "SABA", "SACA", "SADA", "SAEA",
-		//									"SAAa", "SABa", "SACa", "SADa", "SAEa"];
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:	 		["ELRL"];
+			alternative_railtype_list:		["ELRL"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_7)/5+26;
-		//	maintenance_cost:			(param_speed_7)/5+26;
+			construction_cost:				(param_speed_7)/5+26;
+			maintenance_cost:			(param_speed_7)/5+26;
 			speed_limit:					(param_speed_7) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					66;
 			sort_order:					11;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 	if (param_3rd > 1) {
 		property {
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
+			powered_railtype_list:			["SAAZ", "SBAZ", "SUAZ"];
 			}
 		}
 		graphics {
@@ -6575,28 +6424,26 @@ if (railtype_available("SAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:				string(STR_NEW_ENGINE_3RDR);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["3RDR", "MTRO", 
-		//									"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-		//									"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-		//	alternative_railtype_list:		["3RDR", "MTRO", 
-		//									"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-		//									"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:	 	["RAIL", "ELRL"];
+			powered_railtype_list:			["3RDR", "MTRO"];
+			alternative_railtype_list:		["3RDR", "MTRO"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
-		//	construction_cost:				(param_speed_8)/5+8;
-		//	maintenance_cost:			(param_speed_8)/5+8;
+			construction_cost:				(param_speed_8)/5+8;
+			maintenance_cost:			(param_speed_8)/5+8;
 			speed_limit:					(param_speed_8) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					93;
 			sort_order:					12;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_SAA3_overlay;
 			precombined:				switch_SAA3_precombined;
@@ -6629,30 +6476,28 @@ if (railtype_available("SBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:				string(STR_NEW_ENGINE_3RDR);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["3RDR", "MTRO", 
-		//									"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-		//									"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-		//	alternative_railtype_list:		["3RDR", "MTRO", 
-		//									"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-		//									"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO"];
+			powered_railtype_list:			["3RDR", "MTRO"];
+			alternative_railtype_list:		["3RDR", "MTRO"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_9)/5+10;
-		//	maintenance_cost:			(param_speed_9)/5+10;
+			construction_cost:				(param_speed_9)/5+10;
+			maintenance_cost:			(param_speed_9)/5+10;
 			speed_limit:					(param_speed_9) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					94;
 			sort_order:					13;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_SBA3_overlay;
 			precombined:				switch_SBA3_precombined;
@@ -6686,30 +6531,28 @@ if (railtype_available("SUA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:				string(STR_NEW_ENGINE_3RDR);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["3RDR", "MTRO", 
-		//									"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-		//									"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-		//	alternative_railtype_list:		["3RDR", "MTRO", 
-		//									"SAA3", "SBA3", "SUA3", "SAB3", "SBB3", 
-		//									"SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO"];
+			powered_railtype_list:			["3RDR", "MTRO"];
+			alternative_railtype_list:		["3RDR", "MTRO"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_10)/5+12;
-		//	maintenance_cost:			(param_speed_10)/5+12;
+			construction_cost:				(param_speed_10)/5+12;
+			maintenance_cost:			(param_speed_10)/5+12;
 			speed_limit:					(param_speed_10) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					95;
 			sort_order:					14;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_SUA3_overlay;
 			precombined:				switch_SUA3_precombined;
@@ -6744,26 +6587,28 @@ if (railtype_available("SAAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:				string(STR_NEW_ENGINE_3RDR);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-		//	alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO"];
+			powered_railtype_list:			["3RDR", "MTRO"];
+			alternative_railtype_list:		["3RDR", "MTRO"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3", "ELRL"];
 			introduction_date: 				date(0000,01,01);
-		//	construction_cost:				(param_speed_8)/5+16;
-		//	maintenance_cost:			(param_speed_8)/5+16;
+			construction_cost:				(param_speed_8)/5+16;
+			maintenance_cost:			(param_speed_8)/5+16;
 			speed_limit:					(param_speed_8) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					47;
 			sort_order:					15;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_SAA3_overlay;
 			precombined:				switch_SAA3_precombined;
@@ -6800,26 +6645,28 @@ if (railtype_available("SBAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:				string(STR_NEW_ENGINE_3RDR);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-		//	alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO"];
+			powered_railtype_list:			["3RDR", "MTRO"];
+			alternative_railtype_list:		["3RDR", "MTRO"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3", "ELRL"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_9)/5+18;
-		//	maintenance_cost:			(param_speed_9)/5+18;
+			construction_cost:				(param_speed_9)/5+18;
+			maintenance_cost:			(param_speed_9)/5+18;
 			speed_limit:					(param_speed_9) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					48;
 			sort_order:					16;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_SBA3_overlay;
 			precombined:				switch_SBA3_precombined;
@@ -6856,26 +6703,28 @@ if (railtype_available("SUAZ") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_3RDR);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_3RDR);
 			new_engine_text:				string(STR_NEW_ENGINE_3RDR);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ"];
-		//	powered_railtype_list:			["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
-		//	alternative_railtype_list:		["SAAZ", "SBAZ", "SABZ", "SBBZ", "SUAZ"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO"];
+			powered_railtype_list:			["3RDR", "MTRO"];
+			alternative_railtype_list:		["3RDR", "MTRO"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["SAA3", "ELRL"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_10)/5+20;
-		//	maintenance_cost:			(param_speed_10)/5+20;
+			construction_cost:				(param_speed_10)/5+20;
+			maintenance_cost:			(param_speed_10)/5+20;
 			speed_limit:					(param_speed_10) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					49;
 			sort_order:					17;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_SUA3_overlay;
 			precombined:				switch_SUA3_precombined;
@@ -6912,28 +6761,30 @@ if (railtype_available("dAAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_dAAN);
 			autoreplace_text:				 	string(STR_AUTOREPLACE_dAAN);
 			new_engine_text:				string(STR_NEW_ENGINE_dAAN);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ",
-		//									"nAAN", "NAAN", "NBAN", "NCAN", 
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
-		//	powered_railtype_list:			["dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO",
+											"nAAN", "NAAN", "NBAN", "NCAN", 
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
+			powered_railtype_list:			["dAAN", "dBAN", "dBAE"];
+			alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL", "NAAN"];
 			introduction_date: 				date(0000,01,01);
-		//	construction_cost:				(param_speed_11)/5+10;
-		//	maintenance_cost:			(param_speed_11)/5+10;
+			construction_cost:				(param_speed_11)/5+10;
+			maintenance_cost:			(param_speed_11)/5+10;
 			speed_limit:					(param_speed_11) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					57;
 			sort_order:					18;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_dAAN_overlay;
 			precombined:				switch_dAAN_precombined;
@@ -6968,28 +6819,30 @@ if (railtype_available("dBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_dAAN);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_dAAN);
 			new_engine_text:				string(STR_NEW_ENGINE_dAAN);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ",
-		//									"nAAN", "NAAN", "NBAN", "NCAN", 
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
-		//	powered_railtype_list:			["dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO",
+											"nAAN", "NAAN", "NBAN", "NCAN", 
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
+			powered_railtype_list:			["dAAN", "dBAN", "dBAE"];
+			alternative_railtype_list:		["dAAN", "dBAN", "dBAE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["RAIL", "NAAN"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_12)/5+15;
-		//	maintenance_cost:			(param_speed_12)/5+15;
+			construction_cost:				(param_speed_12)/5+15;
+			maintenance_cost:			(param_speed_12)/5+15;
 			speed_limit:					(param_speed_12) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					58;
 			sort_order:					19;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_dBAN_overlay;
 			precombined:				switch_dBAN_precombined;
@@ -7024,28 +6877,30 @@ if (railtype_available("dBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption:			string(STR_BUILD_CAPTION_dAAN);
 			autoreplace_text:			 	string(STR_AUTOREPLACE_dAAN);
 			new_engine_text:				string(STR_NEW_ENGINE_dAAN);
-		//	compatible_railtype_list:	 	["RAIL", "ELRL",
-		//									"SAAN", "SBAN", "SCAN", "SDAN",	
-		//									"SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-		//									"dAAN", "dBAN", "dBAE",
-		//									"SAA3", "SBA3", "SUA3",
-		//									"SAAZ", "SBAZ", "SUAZ",
-		//									"nAAN", "NAAN", "NBAN", "NCAN", 
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
-		//	powered_railtype_list:			["dBAE"];
-		//	alternative_railtype_list:		["dBAE"];
+		//	compatible_railtype_list:	 	["3RDR", "MTRO",
+											"nAAN", "NAAN", "NBAN", "NCAN", 
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE"];
+			powered_railtype_list:			["dBAE"];
+			alternative_railtype_list:		["dBAE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["ELRL", "NAAE"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_12)/5+20;
-		//	maintenance_cost:			(param_speed_12)/5+20;
+			construction_cost:				(param_speed_12)/5+20;
+			maintenance_cost:			(param_speed_12)/5+20;
 			speed_limit:					(param_speed_12) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					59;
 			sort_order:					20;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_dBAN_overlay;
 			precombined:				switch_dBAN_precombined;
@@ -7082,25 +6937,32 @@ if (railtype_available("NAAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:				 	string(STR_AUTOREPLACE_NGRL);
 			new_engine_text:				string(STR_NEW_ENGINE_NGRL);
 		//	compatible_railtype_list:	 	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", 
-		//									"NACN", "NADN", "NAEN",
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
-		//									"NABN", "NACN", "NAEN",
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
-		//									"NABN", "NACN", "NADN", "NAEN"];
+											"NACN", "NADN", "NAEN",
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
+											"NABN", "NACN", "NAEN",
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+											"dAAN", "dBAN", "dBAE"];
+			alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
+											"NABN", "NACN", "NADN", "NAEN"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
-		//	construction_cost:				(param_speed_13)/5;
-		//	maintenance_cost:			(param_speed_13)/5;
+			construction_cost:				(param_speed_13)/5;
+			maintenance_cost:			(param_speed_13)/5;
 			speed_limit:					(param_speed_13) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					173;
 			sort_order:					21;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NAAN_overlay;
 			precombined:				switch_NAAN_precombined;
@@ -7134,24 +6996,31 @@ if (railtype_available("NAAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:				string(STR_NEW_ENGINE_ELNG);
 		//	compatible_railtype_list:	 	["nAAE", "NAAN", "NBAN", "NCAN", 
-		//									"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE", 
-		//									"dBAE"];
-		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE"];
+											"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE", 
+											"dBAE"];
+			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
-		//	construction_cost:				(param_speed_13)/5+8;
-		//	maintenance_cost:			(param_speed_13)/5+8;
+			construction_cost:				(param_speed_13)/5+8;
+			maintenance_cost:			(param_speed_13)/5+8;
 			speed_limit:					(param_speed_13) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					117;
 			sort_order:					24;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NAAN_overlay;
 			precombined:				switch_NAAN_precombined;
@@ -7188,25 +7057,32 @@ if (railtype_available("NBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text:				string(STR_NEW_ENGINE_NGRL);
 		//	compatible_railtype_list:	 	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
 												"NABN", "NACN", "NADN", "NAEN",
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
-		//									"NABN", "NACN", "NADN", "NAEN"];
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+											"dAAN", "dBAN", "dBAE"];
+			alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
+											"NABN", "NACN", "NADN", "NAEN"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1930,01,01);
 			requires_railtype_list:			["NAAN"];
-		//	construction_cost:				(param_speed_14)/5+2;
-		//	maintenance_cost:			(param_speed_14)/5+2;
+			construction_cost:				(param_speed_14)/5+2;
+			maintenance_cost:			(param_speed_14)/5+2;
 			speed_limit:					(param_speed_14) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					174;
 			sort_order:					22;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NBAN_overlay;
 			precombined:				switch_NBAN_precombined;
@@ -7240,26 +7116,33 @@ if (railtype_available("NBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:				string(STR_NEW_ENGINE_ELNG);
 		//	compatible_railtype_list:	 	["nAAE", "NAAN", "NBAN", "NCAN", 
-		//									"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE", 
-		//									"dBAE"];
-		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE"];
+											"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE", 
+											"dBAE"];
+			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1930,01,01);
 			requires_railtype_list:			["NAAE"];
-		//	construction_cost:				(param_speed_14)/5+10;
-		//	maintenance_cost:			(param_speed_14)/5+10;
+			construction_cost:				(param_speed_14)/5+10;
+			maintenance_cost:			(param_speed_14)/5+10;
 			speed_limit:					(param_speed_14) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					118;
 			sort_order:					25;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NBAN_overlay;
 			precombined:				switch_NBAN_precombined;
@@ -7297,25 +7180,32 @@ if (railtype_available("NCAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text:			 		string(STR_NEW_ENGINE_NGRL);
 		//	compatible_railtype_list:	 	["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", 
 												"NABN", "NACN", "NADN", "NAEN",
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
-		//									"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
-		//									"NABN", "NACN", "NADN", "NAEN"];
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAN", "NAAN", "NBAN", "NCAN", "NDAN", "NABN", "NACN", "NAEN",
+											"nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE",
+											"dAAN", "dBAN", "dBAE"];
+			alternative_railtype_list:		["nAAN", "NAAN", "NBAN", "NCAN", "NDAN",
+											"NABN", "NACN", "NADN", "NAEN"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1960,01,01);
 			requires_railtype_list:			["NAAN"];
-		//	construction_cost:				(param_speed_15)/5+4;
-		//	maintenance_cost:			(param_speed_15)/5+4;
+			construction_cost:				(param_speed_15)/5+4;
+			maintenance_cost:			(param_speed_15)/5+4;
 			speed_limit:					(param_speed_15) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					175;
 			sort_order:					23;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NCAN_overlay;
 			precombined:				switch_NCAN_precombined;
@@ -7351,26 +7241,33 @@ if (railtype_available("NCAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:				 	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:				string(STR_NEW_ENGINE_ELNG);
 		//	compatible_railtype_list:	 	["nAAE", "NAAN", "NBAN", "NCAN", 
-		//									"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE", 
-		//									"dBAE"];
-		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE"];
+											"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE", 
+											"dBAE"];
+			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1960,01,01);
 			requires_railtype_list:			["NAAE"];
-		//	construction_cost:				(param_speed_15)/5+12;
-		//	maintenance_cost:			(param_speed_15)/5+12;
+			construction_cost:				(param_speed_15)/5+12;
+			maintenance_cost:			(param_speed_15)/5+12;
 			speed_limit:					(param_speed_15) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					119;
 			sort_order:					26;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NCAN_overlay;
 			precombined:				switch_NCAN_precombined;
@@ -7408,26 +7305,33 @@ if (railtype_available("NDAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:				string(STR_NEW_ENGINE_ELNG);
 		//	compatible_railtype_list:	 	["nAAE", "NAAN", "NBAN", "NCAN", 
-		//									"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE", 
-		//									"dBAE"];
-		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE"];
+											"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE", 
+											"dBAE"];
+			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["NAAE"];
 			introduction_date: 				date(1990,01,01);
-		//	construction_cost:				(param_speed_16)/5+14;
-		//	maintenance_cost:			(param_speed_16)/5+14;
+			construction_cost:				(param_speed_16)/5+14;
+			maintenance_cost:			(param_speed_16)/5+14;
 			speed_limit:					(param_speed_16) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					120;
 			sort_order:					27;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NDAE_overlay;
 			precombined:				switch_NDAE_precombined;
@@ -7465,26 +7369,33 @@ if (railtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:			 	string(STR_AUTOREPLACE_ELNG);
 			new_engine_text:				string(STR_NEW_ENGINE_ELNG);
 		//	compatible_railtype_list:	 	["nAAE", "NAAN", "NBAN", "NCAN", 
-		//									"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE",
-		//									"dAAN", "dBAN", "dBAE"];
-		//	powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE", 
-		//									"dBAE"];
-		//	alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
-		//									"NABE", "NACE", "NADE", "NAEE"];
+											"NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE",
+											"dAAN", "dBAN", "dBAE"];
+			powered_railtype_list:			["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE", 
+											"dBAE"];
+			alternative_railtype_list:		["nAAE", "NAAE", "NBAE", "NCAE", "NDAE", "NUAE", 
+											"NABE", "NACE", "NADE", "NAEE"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG, RAILTYPE_FLAG_CATENARY);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			introduction_date: 				date(1960,01,01);
 			requires_railtype_list:			["NAAE"];
-		//	construction_cost:				(param_speed_17)/5+16;
-		//	maintenance_cost:			(param_speed_17)/5+16;
+			construction_cost:				(param_speed_17)/5+16;
+			maintenance_cost:			(param_speed_17)/5+16;
 			speed_limit:					(param_speed_17) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					121;
 			sort_order:					28;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NUAE_overlay;
 			precombined:				switch_NUAE_precombined;
@@ -7521,18 +7432,25 @@ if (railtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:			 	string(STR_AUTOREPLACE_NAA3);
 			new_engine_text:				string(STR_NEW_ENGINE_NAA3);
 		//	compatible_railtype_list:	 	["NAA3", "NBA3", "NAB3"];
-		//	powered_railtype_list:			["NAA3", "NBA3", "NAB3"];
-		//	alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
+			powered_railtype_list:			["NAA3", "NBA3", "NAB3"];
+			alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
-		//	construction_cost:				(param_speed_18)/5+8;
-		//	maintenance_cost:			(param_speed_18)/5+8;
+			construction_cost:				(param_speed_18)/5+8;
+			maintenance_cost:			(param_speed_18)/5+8;
 			speed_limit:					(param_speed_18) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					101;
 			sort_order:					29;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NAA3_overlay;
 			precombined:				switch_NAA3_precombined;
@@ -7566,20 +7484,27 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text:			 	string(STR_AUTOREPLACE_NAA3);
 			new_engine_text:				string(STR_NEW_ENGINE_NAA3);
 		//	compatible_railtype_list:	 	["NAA3", "NBA3", "NAB3"];
-		//	powered_railtype_list:			["NAA3", "NBA3", "NAB3"];
-		//	alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
+			powered_railtype_list:			["NAA3", "NBA3", "NAB3"];
+			alternative_railtype_list:		["NAA3", "NBA3", "NAB3"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_DISALLOW_90DEG);
-		//curve_speed_multiplier:	 	1;
+			curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_NORMAL;
 			requires_railtype_list:			["NAA3"];
 			introduction_date: 				date(1960,01,01);
-		//	construction_cost:				(param_speed_19)/5+10;
-		//	maintenance_cost:			(param_speed_19)/5+10;
+			construction_cost:				(param_speed_19)/5+10;
+			maintenance_cost:			(param_speed_19)/5+10;
 			speed_limit:					(param_speed_19) km/h;
 			acceleration_model:		 	ACC_MODEL_RAIL;
 			map_colour:					102;
 			sort_order:					30;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_NBA3_overlay;
 			precombined:				switch_NBA3_precombined;
@@ -7609,17 +7534,24 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			toolbar_caption:				string(STR_TOOLBAR_MONO);
 			menu_text:						string(STR_MENU_MONO);
 		//	compatible_railtype_list:	 	["MONO"];
-		//	powered_railtype_list:			["MONO"];
-		//	alternative_railtype_list:		["MONO"];
+			powered_railtype_list:			["MONO"];
+			alternative_railtype_list:		["MONO"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_MONORAIL;
-		//	construction_cost:				80;
-		//	maintenance_cost:			80;
+			construction_cost:				80;
+			maintenance_cost:			80;
 			acceleration_model:		 	ACC_MODEL_MONORAIL;
 			map_colour:					165;
 			sort_order:					31;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_MONO_overlay;
 			precombined:				switch_MONO_precombined;
@@ -7655,17 +7587,24 @@ if (railtype_available("NBA3") || loading_stage == LOADING_STAGE_RESERVE) {
 			toolbar_caption:				string(STR_TOOLBAR_MGLV);
 			menu_text:						string(STR_MENU_MGLV);
 		//	compatible_railtype_list:	 	["MGLV"];
-		//	powered_railtype_list:			["MGLV"];
-		//	alternative_railtype_list:		["MGLV"];
+			powered_railtype_list:			["MGLV"];
+			alternative_railtype_list:		["MGLV"];
 			railtype_flags:			 	bitmask(RAILTYPE_FLAG_PRECOMBINED, RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_DISALLOW_90DEG);
-			//curve_speed_multiplier:	 	1;
+				curve_speed_multiplier:	 	1;
 			station_graphics:			 	RAILTYPE_STATION_MAGLEV;
-		//	construction_cost:				160;
-		//	maintenance_cost:			160;
+			construction_cost:				160;
+			maintenance_cost:			160;
 			acceleration_model:		 	ACC_MODEL_MAGLEV;
 			map_colour:					194;
 			sort_order:					32;
 				}
+		if (param_axle_weight == 1 || param_realism == 1) {
+		property {
+			// This is for use with an external Railtype Standardization Scheme enforcement GRF, such as TEST.
+				// TEST: Tracktype Extended Standardization Template
+				// TEST, meant to be placed at the bottom of your GRF list, contains user-configurable parameters to optionally enforce tracktype compatibility in accordance with the Standardized Railtype Scheme, and/or to optionally enforce realistic stats on tracktypes (availability, pricing, etc.) according to the gameplay used on the Long Haul OpenTTD server.
+			}
+		}
 		graphics {
 			track_overlay:	 				switch_MGLV_overlay;
 			precombined:				switch_MGLV_precombined;
