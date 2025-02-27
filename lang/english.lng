@@ -90,6 +90,15 @@ STR_PARAM_SPEED_17_DESC							:Min - 30 km/h. Max - 255 km/h. Affects the cost o
 STR_PARAM_SPEED_18_DESC							:Min - 30 km/h. Max - 255 km/h. Affects the cost of construction and maintenance. This function only works correctly for narrow-gauge and supported railway sets
 STR_PARAM_SPEED_19_DESC							:Min - 30 km/h. Max - 255 km/h. Affects the cost of construction and maintenance. This function only works correctly for narrow-gauge and supported railway sets
 
+STR_PARAM_AXLE_WEIGHT_NAME						:Axle Weights
+STR_PARAM_AXLE_WEIGHT_DESC						:Choose a method of defining axle weights
+STR_PARAM_AXLE_WEIGHT_NONE						:Vanilla OpenTTD
+STR_PARAM_AXLE_WEIGHT_STANDARD_2012				:Original 2012 Standard
+STR_PARAM_AXLE_WEIGHT_CONVENTION_2022			:2012 + Additional Voltage/Maglev Support
+STR_PARAM_AXLE_WEIGHT_OUTATIME_202X				:Grey's Sports Almanac (Underscore Axle Weight)
+STR_PARAM_AXLE_WEIGHT_UPDATE_2025				:2012 + Voltages/Maglev/Possible Additions Support
+STR_ERROR_AXLE_WEIGHT_TRIGGER_ERROR				:Uh oh! Something went wrong with the Axle Weight setting of U&ReRMM2 Standardized Label Fork!
+
 STR_PARAM_URBAN_RAIL_NAME						:Urban rail tracks
 STR_PARAM_URBAN_RAIL_DESC						:Enable all urban rail tracks
 
