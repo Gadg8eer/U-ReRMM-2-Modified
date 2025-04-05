@@ -1,0 +1,219 @@
+ // railtracks
+
+switch (FEAT_RAILTYPES, SELF, get_ng600_depots,
+  terrain_type )
+{
+  TILETYPE_SNOW: ng600_depot_snow;
+  ng600_depot;
+}
+
+if (railtype_available("Equi") || (loading_stage == LOADING_STAGE_RESERVE)) {
+  item (FEAT_RAILTYPES, horsedrawn)
+  {
+    property
+    {
+      label: "Equi";
+      introduction_date: date(0, 1, 1);
+      name: string(STR_EQUINE_NAME);
+      toolbar_caption: string(STR_EQUINE_TOOLBAR);
+      menu_text: string(STR_EQUINE_MENU);
+      build_window_caption: string(STR_EQUINE_BUILD_CAPTION);
+      autoreplace_text: string(STR_EQUINE_AUTOREPLACE);
+      new_engine_text: string(STR_EQUINE_NEW_ENGINE);
+      compatible_railtype_list: ["NG6R", "NG6E",
+				"VOLO", "VOLE"];
+      powered_railtype_list: [
+				"6AAN", "6AAd", "6AAE",
+				"NG60", "NG6R", "NG6E",
+				"NG60", "NG6R", "NG6E",
+				"VOLO", "VOLE"
+			     ];
+      alternative_railtype_list: ["WWAY", "WGWY", "LTRL", "LIHT"]; // Add this label to the alternative_railtype_list of railtypes that horse-drawn locomotives should be available on!
+      curve_speed_multiplier: 100;
+      //station_graphics: RAILTYPE_STATION_NORMAL;
+      //construction_cost: 1 + 2 * param_build_cost;
+      //maintenance_cost: 1 + 2 * param_infra_cost;
+      speed_limit: 16 km/h;      
+      acceleration_model: ACC_MODEL_RAIL;
+      map_colour: 16;
+      sort_order: 252;
+//      alternative_railtype_list: ["NAAN"];
+      railtype_flags: bitmask(RAILTYPE_FLAG_HIDDEN);
+    }
+    graphics
+    {
+      gui: ng600_gui;
+      track_overlay: ng600_track_overlay;
+      underlay:ng600_underlay;
+      tunnels: ng600_tunnels;
+//      tunnel_overlay: ng600_tunnels;
+      fences: no_fence; 
+      bridge_surfaces: ng600_bridge_surfaces;
+      level_crossings: ng600_level_crossings_open;
+      depots: get_ng600_depots;
+//      signals: switch_signals_type;
+    }
+  }
+}
+
+if (railtype_available("6AAN") || (loading_stage == LOADING_STAGE_RESERVE)) {
+  item (FEAT_RAILTYPES, NG600)
+  {
+    property
+    {
+      label: "6AAN";
+      introduction_date: date(1783, 1, 1);
+      name: string(STR_NG60_NAME);
+      toolbar_caption: string(STR_NG60_TOOLBAR);
+      menu_text: string(STR_NG60_MENU);
+      build_window_caption: string(STR_NG60_BUILD_CAPTION);
+      autoreplace_text: string(STR_NG60_AUTOREPLACE);
+      new_engine_text: string(STR_NG60_NEW_ENGINE);
+      compatible_railtype_list: ["NG6R", "NG6E",
+				"VOLO", "VOLE"];
+      powered_railtype_list: [
+				"6AAN", "6AAd", "6AAE",
+				"NG60", "NG6R", "NG6E",
+				"NG60", "NG6R", "NG6E",
+				"VOLO", "VOLE"
+			     ];
+      alternative_railtype_list: ["NG60", "NG6R", "NG6E"];
+      curve_speed_multiplier: 100;
+      station_graphics: RAILTYPE_STATION_NORMAL;
+      construction_cost: 1 + 2 * param_build_cost;
+      maintenance_cost: 1 + 2 * param_infra_cost;
+      speed_limit: 40 km/h;      
+      acceleration_model: ACC_MODEL_RAIL;
+      map_colour: 16;
+      sort_order: 252;
+//      alternative_railtype_list: ["NAAN"];
+      railtype_flags: bitmask();
+    }
+    graphics
+    {
+      gui: ng600_gui;
+      track_overlay: ng600_track_overlay;
+      underlay:ng600_underlay;
+      tunnels: ng600_tunnels;
+//      tunnel_overlay: ng600_tunnels;
+      fences: no_fence; 
+      bridge_surfaces: ng600_bridge_surfaces;
+      level_crossings: ng600_level_crossings_open;
+      depots: get_ng600_depots;
+//      signals: switch_signals_type;
+    }
+  }
+}
+
+//dual gauge 600/1435mm
+if (railtype_available("6AAd") || (loading_stage == LOADING_STAGE_RESERVE)) {
+  item (FEAT_RAILTYPES, NG600RAIL)
+  {
+    property
+    {
+      label: "6AAd";
+      introduction_date: date(1883, 1, 1);
+      name: string(STR_NG6R_NAME);
+      toolbar_caption: string(STR_NG6R_TOOLBAR);
+      menu_text: string(STR_NG6R_MENU);
+      build_window_caption: string(STR_NG6R_BUILD_CAPTION);
+      autoreplace_text: string(STR_NG60_AUTOREPLACE);
+      new_engine_text: string(STR_NG60_NEW_ENGINE);
+      compatible_railtype_list: ["NG60", "NAAN", "RAIL", "ELRL"];
+      powered_railtype_list: ["NG6R", "NG60", "NAAN", "RAIL"];
+      curve_speed_multiplier: 100;
+      station_graphics: RAILTYPE_STATION_NORMAL;
+      construction_cost: 5 + 4 * param_build_cost;
+      maintenance_cost: 5 + 4 * param_infra_cost;
+      speed_limit: 60 km/h;      
+      acceleration_model: ACC_MODEL_RAIL;
+      map_colour: 17;
+      sort_order: 253;
+//      alternative_railtype_list: ["NAAN"];
+      railtype_flags: bitmask();
+    }
+    graphics
+    {
+      gui: ng600rail_gui;
+      track_overlay: ng600rail_track_overlay;
+      underlay:ng600rail_underlay;
+      tunnels: ng600rail_tunnels;
+//      tunnel_overlay: ng600_tunnels; 
+      bridge_surfaces: ng600rail_bridge_surfaces;
+      level_crossings: ng600rail_level_crossings_open;
+//      signals: switch_signals_type;
+    }
+  }
+}
+
+if (param_enable_electric) {
+if (railtype_available("6AAE") || (loading_stage == LOADING_STAGE_RESERVE)) {
+  item (FEAT_RAILTYPES, NG600E)
+  {
+    property
+    {
+      label: "6AAE";
+      introduction_date: date(1951, 1, 1);
+      name: string(STR_NG6E_NAME);
+      toolbar_caption: string(STR_NG6E_TOOLBAR);
+      menu_text: string(STR_NG6E_MENU);
+      build_window_caption: string(STR_NG6E_BUILD_CAPTION);
+      autoreplace_text: string(STR_NG6E_AUTOREPLACE);
+      new_engine_text: string(STR_NG6E_NEW_ENGINE);
+      compatible_railtype_list: [
+				"NG60",
+				"6AAN", "6AAd"
+				"NAAN", "NAAE",
+				"VOLO", VOLE"
+				];
+      powered_railtype_list: [
+				"NG6E",
+				"6AAE",
+				"NAAE",
+				"VOLE"
+				];
+      curve_speed_multiplier: 100;
+      station_graphics: RAILTYPE_STATION_NORMAL;
+      construction_cost: 7 + 4 * param_build_cost;
+      maintenance_cost: 8 + 4 * param_infra_cost;
+      speed_limit: 40 km/h;      
+      acceleration_model: ACC_MODEL_RAIL;
+      map_colour: 19;
+      sort_order: 254;
+//      alternative_railtype_list: ["NAAE"];
+      railtype_flags:	bitmask(RAILTYPE_FLAG_CATENARY);
+    }
+    graphics
+    {
+      gui: ng600e_gui;
+      track_overlay: ng600e_track_overlay;
+      underlay:ng600e_underlay;
+      tunnels: ng600_tunnels;
+//      tunnel_overlay: ng600_tunnels; 
+      bridge_surfaces: ng600_bridge_surfaces;
+      level_crossings: ng600_level_crossings_open;
+//      signals: switch_signals_type;
+    }
+  }
+}
+}
+
+item (FEAT_RAILTYPES, rt_rail) {
+	property {
+		label                    : "RAIL";
+		compatible_railtype_list : ["6AAd", "NG6R", "ELRL"];
+                powered_railtype_list: ["6AAd", "NG6R", "RAIL", "ELRL"];
+	}
+}
+
+item (FEAT_RAILTYPES, rt_elrl) {
+
+	property {
+		label                    : "ELRL";
+		compatible_railtype_list : ["6AAd", "NG6R", "RAIL"];
+                powered_railtype_list: ["ELRL"];
+	}
+}
+
+
+
