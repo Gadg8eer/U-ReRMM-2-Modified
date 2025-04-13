@@ -91,8 +91,8 @@ grf {
             param_speed_3 {
                 type: int;
                 name: string(STR_PARAM_SPEED_3_NAME);
-                desc: string(STR_PARAM_SPEED_2_DESC);
-                min_value:  30;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_3_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value:  29;
                 max_value: 255;
                 def_value: 151;
             }
@@ -101,8 +101,8 @@ grf {
             param_speed_4 {
                 type: int;
                 name: string(STR_PARAM_SPEED_4_NAME);
-                desc: string(STR_PARAM_SPEED_4_DESC);
-                min_value: 100;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_4_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value: 99;
                 max_value: 501;
                 def_value: 210;
                 names: {
@@ -128,7 +128,7 @@ grf {
             param_speed_6 {
                 type: int;
                 name: string(STR_PARAM_SPEED_6_NAME);
-                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_5_DESC), string(STR_STRING_DISABLE_DESC));
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_6_DESC), string(STR_STRING_DISABLE_DESC));
                 min_value:  99;
                 max_value: 501;
                 def_value: 360;
@@ -142,7 +142,7 @@ grf {
             param_speed_7 {
                 type: int;
                 name: string(STR_PARAM_SPEED_7_NAME);
-                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_2_DESC), string(STR_STRING_DISABLE_DESC));
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_7_DESC), string(STR_STRING_DISABLE_DESC));
                 min_value:  29;
                 max_value: 255;
                 def_value: 121;
@@ -155,8 +155,8 @@ grf {
             param_speed_8 {
                 type: int;
                 name: string(STR_PARAM_SPEED_8_NAME);
-                desc: string(STR_PARAM_SPEED_8_DESC);
-                min_value:  30;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_8_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value:  29;
                 max_value: 255;
                 def_value:  60;
             }
@@ -165,8 +165,8 @@ grf {
             param_speed_9 {
                 type: int;
                 name: string(STR_PARAM_SPEED_9_NAME);
-                desc: string(STR_PARAM_SPEED_8_DESC);
-                min_value:  30;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_9_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value:  29;
                 max_value: 255;
                 def_value: 111;
             }
@@ -175,7 +175,7 @@ grf {
             param_speed_10 {
                 type: int;
                 name: string(STR_PARAM_SPEED_10_NAME);
-                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_8_DESC), string(STR_STRING_DISABLE_DESC));
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_10_DESC), string(STR_STRING_DISABLE_DESC));
                 min_value:  29;
                 max_value: 255;
                 def_value:  91;
@@ -214,8 +214,8 @@ grf {
             param_speed_13 {
                 type: int;
                 name: string(STR_PARAM_SPEED_13_NAME);
-                desc: string(STR_PARAM_SPEED_13_DESC);
-                min_value:  30;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_13_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value:  29;
                 max_value: 255;
                 def_value:  60;
             }
@@ -224,8 +224,8 @@ grf {
             param_speed_14 {
                 type: int;
                 name: string(STR_PARAM_SPEED_14_NAME);
-                desc: string(STR_PARAM_SPEED_13_DESC);
-                min_value: 30;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_14_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value: 29;
                 max_value: 255;
                 def_value: 91;
             }
@@ -234,7 +234,7 @@ grf {
             param_speed_15 {
                 type: int;
                 name: string(STR_PARAM_SPEED_15_NAME);
-                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_13_DESC), string(STR_STRING_DISABLE_DESC));
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_15_DESC), string(STR_STRING_DISABLE_DESC));
                 min_value: 29;
                 max_value: 255;
                 def_value: 121;
@@ -247,7 +247,7 @@ grf {
             param_speed_16 {
                 type: int;
                 name: string(STR_PARAM_SPEED_16_NAME);
-                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_13_DESC), string(STR_STRING_DISABLE_DESC));
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_16_DESC), string(STR_STRING_DISABLE_DESC));
                 min_value: 29;
                 max_value: 255;
                 def_value: 151;
@@ -260,7 +260,7 @@ grf {
             param_speed_17 {
                 type: int;
                 name: string(STR_PARAM_SPEED_17_NAME);
-                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_13_DESC), string(STR_STRING_DISABLE_DESC));
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_17_DESC), string(STR_STRING_DISABLE_DESC));
                 min_value: 29;
                 max_value: 255;
                 def_value: 101;
@@ -273,8 +273,8 @@ grf {
             param_speed_18 {
                 type: int;
                 name: string(STR_PARAM_SPEED_18_NAME);
-                desc: string(STR_PARAM_SPEED_18_DESC);
-                min_value: 30;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_18_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value: 29;
                 max_value: 255;
                 def_value: 60;
             }
@@ -283,8 +283,8 @@ grf {
             param_speed_19 {
                 type: int;
                 name: string(STR_PARAM_SPEED_19_NAME);
-                desc: string(STR_PARAM_SPEED_18_DESC);
-                min_value: 30;
+                desc: string(STR_STRING_2, string(STR_PARAM_SPEED_19_DESC), string(STR_STRING_DISABLE_DESC));
+                min_value: 29;
                 max_value: 255;
                 def_value: 91;
             }
@@ -299,23 +299,23 @@ if (ttd_platform != PLATFORM_OPENTTD || (openttd_version < version_openttd(1, 13
 //==================================================================================================================================
 if ((param[4]  < 29) || (param[4]  > 255))  { param[4]  = 60;  }
 if ((param[5]  < 29) || (param[5]  > 255))  { param[5]  = 101; }
-if ((param[6]  < 30) || (param[6]  > 255))  { param[6]  = 151; }
+if ((param[6]  < 29) || (param[6]  > 255))  { param[6]  = 151; }
 if ((param[7]  < 99) || (param[7]  > 501))  { param[7]  = 210; }
 if ((param[8]  < 99) || (param[8]  > 501))  { param[8]  = 281; }
 if ((param[9]  < 99) || (param[9]  > 501))  { param[9]  = 360; }
 if ((param[10] < 29) || (param[10] > 255))  { param[10] = 121; }
-if ((param[11] < 30) || (param[11] > 255))  { param[11] = 60;  }
-if ((param[12] < 30) || (param[12] > 255))  { param[12] = 111; }
+if ((param[11] < 29) || (param[11] > 255))  { param[11] = 60;  }
+if ((param[12] < 29) || (param[12] > 255))  { param[12] = 111; }
 if ((param[13] < 29) || (param[13] > 255))  { param[13] = 91;  }
 if ((param[14] < 29) || (param[14] > 255))  { param[14] = 60;  }
 if ((param[15] < 29) || (param[15] > 255))  { param[15] = 121; }
-if ((param[16] < 30) || (param[16] > 255))  { param[16] = 60;  }
-if ((param[17] < 30) || (param[17] > 255))  { param[17] = 91;  }
+if ((param[16] < 29) || (param[16] > 255))  { param[16] = 60;  }
+if ((param[17] < 29) || (param[17] > 255))  { param[17] = 91;  }
 if ((param[18] < 29) || (param[18] > 255))  { param[18] = 121; }
 if ((param[19] < 29) || (param[19] > 255))  { param[19] = 151; }
 if ((param[20] < 29) || (param[20] > 255))  { param[20] = 101; }
-if ((param[21] < 30) || (param[21] > 255))  { param[21] = 60;  }
-if ((param[22] < 30) || (param[22] > 255))  { param[22] = 91;  }
+if ((param[21] < 29) || (param[21] > 255))  { param[21] = 60;  }
+if ((param[22] < 29) || (param[22] > 255))  { param[22] = 91;  }
 //==================================================================================================================================
 //								BASECOST
 //==================================================================================================================================
