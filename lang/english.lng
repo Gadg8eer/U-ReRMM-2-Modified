@@ -9,6 +9,8 @@ STR_GRF_DESCRIPTION_MINI		:These sets belong to {YELLOW}U&ReRMM 2{BLACK}. All ra
 STR_ERROR_URERMM2				:{ORANGE}Incompatibility {YELLOW}U&ReRMM2
 STR_ERROR_URERMM				:{ORANGE}Incompatibility {YELLOW}U&ReRMM
 
+STR_INVALID_TEST				:This test version of U&ReRMM Re-Standardsized Label Fork is incomplete and enabling any 3rd Rail setting except "Off" will cause undesired issues until certain pieces of NML code have been replaced. To avoid this, for now U&ReRMM2 RSLF disables itself if you use incorrect settings.
+
 STR_OPENTTD_VERSION								:1.13.0
 
 STR_PARAM_GUI_NAME					 			:GUI
@@ -118,13 +120,13 @@ STR_BUILD_CAPTION_dAAN							:Dual gauge railway vehicles
 STR_AUTOREPLACE_dAAN							:Dual gauge railway vehicles
 STR_NEW_ENGINE_dAAN								:Dual gauge railway vehicle
 
-STR_BUILD_CAPTION_NGRL							:New narrow-gauge railway vehicles
-STR_AUTOREPLACE_NGRL							:Narrow-gauge railway vehicles
-STR_NEW_ENGINE_NGRL								:Narrow-gauge railway vehicle
+STR_BUILD_CAPTION_RCCN							:New narrow-gauge railway vehicles
+STR_AUTOREPLACE_RCCN							:Narrow-gauge railway vehicles
+STR_NEW_ENGINE_RCCN								:Narrow-gauge railway vehicle
 
-STR_BUILD_CAPTION_ELNG							:New electrified narrow-gauge railway vehicles
-STR_AUTOREPLACE_ELNG							:Electrified narrow-gauge railway vehicles
-STR_NEW_ENGINE_ELNG								:Electrified narrow-gauge railway vehicle
+STR_BUILD_CAPTION_RAFE							:New electrified narrow-gauge railway vehicles
+STR_AUTOREPLACE_RAFE							:Electrified narrow-gauge railway vehicles
+STR_NEW_ENGINE_RAFE								:Electrified narrow-gauge railway vehicle
 
 STR_BUILD_CAPTION_NAA3							:New 3rd-rail-powered narrow-gauge railway vehicles
 STR_AUTOREPLACE_NAA3							:3rd-rail-powered narrow-gauge railway vehicles
