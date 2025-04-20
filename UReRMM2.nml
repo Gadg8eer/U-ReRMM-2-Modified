@@ -1601,42 +1601,42 @@ switch (FEAT_RAILTYPES, SELF, switch_SEDN_gui, param_gui) {
 //============================================================================
 //						HIGHSPEED MAIN LINE EL(SDAE)
 //============================================================================
-spriteset(normal_SED_asterisk_depots, "gfx/SDAE.png") {													//DEPOTS
+spriteset(normal_SEDA_depots, "gfx/SDAE.png") {													//DEPOTS
     tmpl_depot(0)
 }
-spriteset(snow_SED_asterisk_depots, "gfx/SDAE.png") {
+spriteset(snow_SEDA_depots, "gfx/SDAE.png") {
     tmpl_depot(414)
 }
-switch(FEAT_RAILTYPES, SELF, switch_SED_asterisk_depots, terrain_type) {
-    TILETYPE_SNOW: snow_SED_asterisk_depots;
-    normal_SED_asterisk_depots;
+switch(FEAT_RAILTYPES, SELF, switch_SEDA_depots, terrain_type) {
+    TILETYPE_SNOW: snow_SEDA_depots;
+    normal_SEDA_depots;
 }
 
 
-spriteset(switch_SED_asterisk_pylons_catenary_1, "gfx/SDAE.png") {										// PYLONS
+spriteset(switch_SEDA_pylons_catenary_1, "gfx/SDAE.png") {										// PYLONS
     tmpl_pylons_catenary(0)
 }
-spriteset(switch_SED_asterisk_pylons_catenary_2, "gfx/SDAE.png") {										// PYLONS
+spriteset(switch_SEDA_pylons_catenary_2, "gfx/SDAE.png") {										// PYLONS
     tmpl_pylons_catenary(36)
 }
-switch (FEAT_RAILTYPES, SELF, switch_SED_asterisk_pylons_catenary, random_bits) {
-	1: switch_SED_asterisk_pylons_catenary_2;
-	switch_SED_asterisk_pylons_catenary_1;
+switch (FEAT_RAILTYPES, SELF, switch_SEDA_pylons_catenary, random_bits) {
+	1: switch_SEDA_pylons_catenary_2;
+	switch_SEDA_pylons_catenary_1;
 }
 
-spriteset(gui_SED_asterisk_UGUI, "gfx/SDAE.png") {														//GUI						
+spriteset(gui_SEDA_UGUI, "gfx/SDAE.png") {														//GUI						
     tmpl_gui_UGUI()
 }
-spriteset(gui_SED_asterisk_opengfx, "gfx/SDAE.png") {													//GUI
+spriteset(gui_SEDA_opengfx, "gfx/SDAE.png") {													//GUI
     tmpl_gui_gfx()
 }
-spriteset(gui_SED_asterisk_ttd, "gfx/SDAE.png") {
+spriteset(gui_SEDA_ttd, "gfx/SDAE.png") {
     tmpl_gui_ttd()
 }
-switch (FEAT_RAILTYPES, SELF, switch_SED_asterisk_gui, param_gui) {
-    1: gui_SED_asterisk_opengfx;
-    2: gui_SED_asterisk_UGUI;
-	gui_SED_asterisk_ttd;
+switch (FEAT_RAILTYPES, SELF, switch_SEDA_gui, param_gui) {
+    1: gui_SEDA_opengfx;
+    2: gui_SEDA_UGUI;
+	gui_SEDA_ttd;
 }
 //============================================================================
 //						MODERN HIGHSPEED LINE EL (SEAE)
@@ -5392,7 +5392,7 @@ spriteset(switch_SUF_asterisk_wires_standar_rail, "gfx/WIRES/WIRES.png") {
 //												"SAAN", "SBAN", "SCAN", "SDAN",
 //												"SABN", "SACN", "SADN", "SAEN",
 ////						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-//			                                	"SABE", "SACE", "SADE", "SAEE",
+////						                        "SABE", "SACE", "SADE", "SAEE",
 //												"dAAN", "dBAN", "dBAE"];
 //			alternative_railtype_list:		["RAIL",
 //												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
@@ -5486,7 +5486,7 @@ if (railtype_available("SBBN") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"SAAN", "SBAN", "SCAN", "SDAN",
 //												"SABN", "SACN", "SADN", "SAEN",
 //						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-			                                	"SABE", "SACE", "SADE", "SAEE",
+//						                        "SABE", "SACE", "SADE", "SAEE",
 //												"dAAN", "dBAN", "dBAE"];
 //			alternative_railtype_list:		["RAIL",
 //												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
@@ -5572,7 +5572,7 @@ if (railtype_available("SBBN") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"dBAE"];
 //			alternative_railtype_list:		["ELRL",
 //						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+//						                        "SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
 //												"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
 //												"SAAd", "SABd", "SACd", "SADd", "SAEd",
 //												"SAAA", "SABA", "SACA", "SADA", "SAEA",
@@ -5648,7 +5648,7 @@ if (railtype_available("SDDN") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"SAAN", "SBAN", "SCAN", "SDAN",
 //												"SABN", "SACN", "SADN", "SAEN",
 //						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-			                                	"SABE", "SACE", "SADE", "SAEE",
+//						                        "SABE", "SACE", "SADE", "SAEE",
 //												"dAAN", "dBAN", "dBAE"];
 //			alternative_railtype_list:		["RAIL",
 //												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
@@ -5700,12 +5700,12 @@ if (railtype_available("SDDN") || loading_stage == LOADING_STAGE_RESERVE) {
 		}
 	}
 //============================================================================
-//						MAIN RAILWAY EL (SDD*)
+//						MAIN RAILWAY EL (SDDa)
 //============================================================================
-if (railtype_available("SDD*") || loading_stage == LOADING_STAGE_RESERVE) {
-	item(FEAT_RAILTYPES, "SDD*", 8) {
+if (railtype_available("SDDa") || loading_stage == LOADING_STAGE_RESERVE) {
+	item(FEAT_RAILTYPES, "SDDa", 8) {
 		property {
-			label:							"SDD*";
+			label:							"SDDa";
 			name:                       	string(STR_NAME_SDD_asterisk);
 			toolbar_caption:    			string(STR_TOOLBAR_SDD_asterisk);
 			menu_text:                  	string(STR_MENU_SDD_asterisk);
@@ -5734,7 +5734,7 @@ if (railtype_available("SDD*") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"dBAE"];
 //			alternative_railtype_list:		["ELRL",
 //						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+//						                        "SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
 //												"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
 //												"SAAd", "SABd", "SACd", "SADd", "SAEd",
 //												"SAAA", "SABA", "SACA", "SADA", "SAEA",
@@ -5743,7 +5743,7 @@ if (railtype_available("SDD*") || loading_stage == LOADING_STAGE_RESERVE) {
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 //			requires_railtype_list:			["ELRL"];
-			introduction_date: 				date(1930,01,01);
+			introduction_date: 				date(1918,11,12);
 			construction_cost:          	(param_speed_3)/5+18;
 			maintenance_cost:				(param_speed_3)/5+18;
 			speed_limit:                	(param_speed_3) km/h;
@@ -5806,7 +5806,7 @@ if (railtype_available("SEDN") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"SAAN", "SBAN", "SCAN", "SDAN",
 //												"SABN", "SACN", "SADN", "SAEN",
 //						                        "SAAE", "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",
-			                                	"SABE", "SACE", "SADE", "SAEE",
+//						                        "SABE", "SACE", "SADE", "SAEE",
 //												"dAAN", "dBAN", "dBAE"];
 //			alternative_railtype_list:		["RAIL",
 //												"SAAN", "SBAN", "SCAN", "SDAN",												//Speed limit class [*X**]
@@ -5858,15 +5858,15 @@ if (railtype_available("SEDN") || loading_stage == LOADING_STAGE_RESERVE) {
 		}
 	}
 //============================================================================
-//						MODERN RAILWAY EL (SED*)
+//						MODERN RAILWAY EL (SEDA)
 //============================================================================
-if (railtype_available("SED*") || loading_stage == LOADING_STAGE_RESERVE) {
-	item(FEAT_RAILTYPES, "SED*", 10) {
+if (railtype_available("SEDA") || loading_stage == LOADING_STAGE_RESERVE) {
+	item(FEAT_RAILTYPES, "SEDA", 10) {
 		property {
-			label:							"SED*";
-			name:                       	string(STR_NAME_SED_asterisk);
-			toolbar_caption:    			string(STR_TOOLBAR_SED_asterisk);
-			menu_text:                  	string(STR_MENU_SED_asterisk);
+			label:							"SEDA";
+			name:                       	string(STR_NAME_SEDA);
+			toolbar_caption:    			string(STR_TOOLBAR_SEDA);
+			menu_text:                  	string(STR_MENU_SEDA);
 			build_window_caption:			string(STR_BUILD_CAPTION_ELRL);
 			autoreplace_text:           	string(STR_AUTOREPLACE_ELRL);
 			new_engine_text:            	string(STR_NEW_ENGINE_ELRL);
@@ -5892,7 +5892,7 @@ if (railtype_available("SED*") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"dBAE"];
 //			alternative_railtype_list:		["ELRL",
 //						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+//						                        "SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
 //												"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
 //												"SAAd", "SABd", "SACd", "SADd", "SAEd",
 //												"SAAA", "SABA", "SACA", "SADA", "SAEA",
@@ -5901,7 +5901,7 @@ if (railtype_available("SED*") || loading_stage == LOADING_STAGE_RESERVE) {
 		//curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 //			requires_railtype_list:			["ELRL"];
-			introduction_date: 				date(1960,01,01);
+			introduction_date: 				date(1950,01,01);
 			construction_cost:          	(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
 			maintenance_cost:				(param_speed_4 == 501) ? 100 : (param_speed_4)/5+20;
 			speed_limit:                	(param_speed_4 == 501) ?   0 : (param_speed_4) km/h;
@@ -5921,12 +5921,12 @@ if (railtype_available("SED*") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_SEDN_bridge;
 			level_crossings: 				switch_SEDN_level_crossings;
 			tunnels:         				switch_SEDN_tunnel;
-			depots:          				switch_SED_asterisk_depots;
-			catenary_pylons: 				switch_SED_asterisk_pylons_catenary;
+			depots:          				switch_SEDA_depots;
+			catenary_pylons: 				switch_SEDA_pylons_catenary;
 			catenary_wire: 					switch_wires_standar_rail;
 		  //signals:
 			fences:          				switch_SEDN_fences;
-			gui:							switch_SED_asterisk_gui;
+			gui:							switch_SEDA_gui;
 				}
 	if (param_tunnel == 1) {
 		graphics {
@@ -5971,7 +5971,7 @@ if (railtype_available("SFBA") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"dBAE"];
 //			alternative_railtype_list:		["ELRL",
 //						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+//						                        "SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
 //												"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
 //												"SAAd", "SABd", "SACd", "SADd", "SAEd",
 //												"SAAA", "SABA", "SACA", "SADA", "SAEA",
@@ -6050,7 +6050,7 @@ if (railtype_available("SGAA") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"dBAE"];
 //			alternative_railtype_list:		["ELRL",
 //						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+//						                        "SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
 //												"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
 //												"SAAd", "SABd", "SACd", "SADd", "SAEd",
 //												"SAAA", "SABA", "SACA", "SADA", "SAEA",
@@ -6129,7 +6129,7 @@ if (railtype_available("SUF*") || loading_stage == LOADING_STAGE_RESERVE) {
 //												"dBAE"];
 //			alternative_railtype_list:		["ELRL",
 //						                        "SBAE", "SCAE", "SDAE", "SEAE", "SFAE", "SUAE",						//Speed limit class [*X**]
-			                                	"SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
+//						                        "SAAE", "SABE", "SACE", "SADE", "SAEE",								//Axle load class [**X*]
 //												"SAAD", "SABD", "SACD", "SADD", "SAED",								//Energy source type class [***X]
 //												"SAAd", "SABd", "SACd", "SADd", "SAEd",
 //												"SAAA", "SABA", "SACA", "SADA", "SAEA",
@@ -6439,7 +6439,7 @@ if (railtype_available("SUF*") || loading_stage == LOADING_STAGE_RESERVE) {
 //			level_crossings: 				switch_SBA3_level_crossings;
 //			tunnels:         				switch_SBA3_tunnel;
 //			depots:          				switch_SBAZ_depots;
-//			catenary_pylons: 				switch_SED_asterisk_pylons_catenary;
+//			catenary_pylons: 				switch_SEDA_pylons_catenary;
 //			catenary_wire: 					switch_wires_standar_rail;
 //		  //signals:
 //			fences:          				switch_SBA3_fences;
@@ -6593,7 +6593,7 @@ if (railtype_available("dCDN") || loading_stage == LOADING_STAGE_RESERVE) {
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 //			requires_railtype_list:			["RAIL", "RAAN"];
-			introduction_date: 				date(2025,01,01);
+			introduction_date: 				date(2030,01,01);
 			construction_cost:          	(param_speed_12)/5+15;
 			maintenance_cost:				(param_speed_12)/5+15;
 			speed_limit:                	(param_speed_12) km/h;
@@ -6649,7 +6649,7 @@ if (railtype_available("dCD(") || loading_stage == LOADING_STAGE_RESERVE) {
 		  //curve_speed_multiplier:     	1;
 			station_graphics:           	RAILTYPE_STATION_NORMAL;
 //			requires_railtype_list:			["ELRL", "RAAE"];
-			introduction_date: 				date(?,01,01);
+			introduction_date: 				date(2030,01,01);
 			construction_cost:          	(param_speed_12)/5+20;
 			maintenance_cost:				(param_speed_12)/5+20;
 			speed_limit:                	(param_speed_12) km/h;
@@ -6665,7 +6665,7 @@ if (railtype_available("dCD(") || loading_stage == LOADING_STAGE_RESERVE) {
 			level_crossings: 				switch_dCDN_level_crossings;
 			tunnels:         				switch_dCDN_tunnel;
 			depots:          				switch_dCD_leftcurvebracket_depots;
-			catenary_pylons: 				switch_SED_asterisk_pylons_catenary;
+			catenary_pylons: 				switch_SEDA_pylons_catenary;
 			catenary_wire: 					switch_wires_standar_rail;
 		//signals:
 			fences:          				switch_dCDN_fences;
